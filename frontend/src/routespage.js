@@ -6,6 +6,8 @@ import ChooseColor from './pages/ChooseColor';
 import AppliedColor from './pages/AppliedColor';
 import Final from './pages/Final';
 import History from './pages/History';
+import Login from './pages/Login';
+
 
 const routes = [
     {
@@ -39,6 +41,10 @@ const routes = [
     {
         page : '/History',
         component : History
+    },
+    {
+        page : '/Login',
+        component : Login
     },
 ];
 

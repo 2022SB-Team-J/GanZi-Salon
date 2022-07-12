@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Title() {
 return (
-    <div >
+    <div className="background-image">
     <div >GanZi Salon</div>
 
     <Link to="/ChooseStyle" style={{ textDecoration: "none" }}>
@@ -26,6 +26,11 @@ return (
 
     </Link>
     
+    <Link to="/Login" style={{ textDecoration: "none" }}>
+
+        <h1  >Go Login Page</h1>
+
+    </Link>
     </div>
     
 );
