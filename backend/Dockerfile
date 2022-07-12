@@ -1,11 +1,11 @@
-	
 FROM python:latest
 
-WORKDIR /app/
+COPY ./ /backend
 
-COPY ./main.py /app/
-COPY ./requirements.txt /app/
+WORKDIR /backend
 
 RUN pip install -r requirements.txt
 
-CMD python -m uvicorn ... --host=0.0.0.0 --port 8000 main:app
+WORKDIR /backend/app
+
+CMD python -m uvicorn --host=0.0.0.0 --port 8000 main:app
