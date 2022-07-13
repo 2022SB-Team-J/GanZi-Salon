@@ -1,15 +1,24 @@
-.title {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.title-text-white {
+    
     color:white;
     width: 100%;
     text-align:center;
     font-size: 2.4rem;
     font-family:'ariblk';
   }
-  .background-image
+  .title-text-black {
+    
+    color:black;
+    width: 100%;
+    text-align:center;
+    font-size: 2.4rem;
+    font-family:'ariblk';
+    padding-top: 90px;
+
+    
+  }
+
+  .background-image-black
 {   
     width : 100vw;
     height : 100vh;
@@ -17,4 +26,15 @@
     padding : 0;
     background: url("./images/blackimage.jpg") no-repeat center fixed;
     background-size: cover;
+    background-attachment: fixed;
+}
+.background-image-white
+{   
+    width : 100vw;
+    height : 100vh;
+    margin : 0;
+    padding : 0;
+    background: url("./images/whiteimage.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-attachment: fixed;
 }

@@ -1,36 +1,32 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/TitleButton";
 
 function Title() {
 return (
-    <div className="background-image">
-    <div >GanZi Salon</div>
+    <div className="background-image-white">
+    <div className = "title-text-black">GanZi Salon</div>
 
-    <Link to="/ChooseStyle" style={{ textDecoration: "none" }}>
+    <Link to="/History" style={{ textDecoration: "none" }}>
     
-        <div> Change style</div>
+    <Button> History</Button>
     
     </Link> 
 
+    <div style= {{textAlign : 'center'}}>
+    <Link to="/ChangeStyle" style={{ textDecoration: "none" }}>
 
+        <Button style >Change Style</Button>
+
+    </Link>
+    
+    
     <Link to="/ChangeColor" style={{ textDecoration: "none" }}>
 
-        <div >change color</div>
+        <Button color >Change Color</Button>
 
     </Link>
-    
-    <Link to="/History" style={{ textDecoration: "none" }}>
-
-        <div  className="title">History</div>
-
-    </Link>
-    
-    <Link to="/Login" style={{ textDecoration: "none" }}>
-
-        <h1  >Go Login Page</h1>
-
-    </Link>
+    </div>
     </div>
     
 );

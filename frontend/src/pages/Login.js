@@ -1,6 +1,8 @@
-
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Button from "../components/LoginButton";
+import Input from "../components/IdPassword";
 
 const Container = styled.div`
   margin-top: 100px;
@@ -8,66 +10,34 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Input = styled.input`
-  position: relative;
-  overflow: hidden;
-  width: 20%;
-  height: 40px;
-  margin: 0 0 8px;
-  padding: 5px 39px 5px 11px;
-  border: solid 1px #dadada;
-  background: #fff;
-  box-sizing: border-box;
-`;
-
-const Button = styled.div`
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 49px;
-  display: block;
-  width: 100px;
-  height: 49px;
-  margin: 16px 0 7px;
-  cursor: pointer;
-  text-align: center;
-  display: inline-block;
-  color: #fff;
-  border: none;
-  border-radius: 13px;
-  background-color: #03c75a;
-  
-
-  
-  ${({ disabled }) =>
-    disabled &&
-    `
-    background-color: #efefef;
-  `}
-`;
-//아디 비번 값 받기
-//값없으면 disabled
-function LoginForm() {
+function Login() {
 return (
     
-    <Container className="background-image" >
-    <div style = {{marginTop : '300px'}}>
+    <Container className="background-image-black" >
+      
+    <div style = {{marginTop : '250px', marginBottom: '30px'}}>
+    <div className = "title-text-white"  >GANZI SALON</div>
     <div>
-    <Input id="id" name="id" placeholder="아이디를 입력해주세요" />
+    <Input id="id" name="id" placeholder="ID" />
     </div>
     <Input
         id="password"
         name="password"
         type="password"
-        placeholder="비밀번호를 입력해주세요"
+        placeholder="PASSWORD"
       />
-      
       <div style = {{textAlign : 'center'}}>
-      <Button>로그인</Button>
-      <Button style = {{marginLeft : '100px'}}>회원가입</Button>
+      {/* 임시로 Title 페이지로 이동하게 세팅 */}
+      <Link to="/Title" style={{ textDecoration: "none" }}>
+      <Button>Sign in</Button>
+      </Link> 
+      <Link to="/SignUp" style={{ textDecoration: "none" }}>
+      <Button signup>Sign up</Button>
+      </Link> 
       </div>
       </div>
     </Container>
   );
 }
 
-export default LoginForm;
+export default Login;
