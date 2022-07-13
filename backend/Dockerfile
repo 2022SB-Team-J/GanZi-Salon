@@ -1,5 +1,11 @@
-FROM python:3.8.3-alpine
+FROM python:latest
 
-WORKDIR /app
+COPY ./ /backend
 
-RUN pip install --upgrade pip
+WORKDIR /backend
+
+RUN pip install -r requirements.txt
+
+WORKDIR /backend/app
+
+CMD python -m uvicorn --host=0.0.0.0 --port 8000 main:app
