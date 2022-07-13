@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  frontend:
+    #Dockerfile의 경로
+    build: ./frontend
+    command: ["npm", "start"]
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/app
+    
+      
+    # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리(작업공간 app으로 설정해줌 -> frontend/Dockerfile)
+  backend:
+    build: ./backend
+    ports:
+      - 8000:8000
