@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -18,14 +20,19 @@ return (
     <div style = {{marginTop : '250px', marginBottom: '30px'}}>
     <div className = "title-text-white"  >GANZI SALON</div>
     <div>
-    <Input id="id" name="id" placeholder="ID" />
+        <Input 
+        id="id"
+        name="id" 
+        placeholder="ID" 
+        />
     </div>
-    <Input
+        <Input
         id="password"
         name="password"
         type="password"
         placeholder="PASSWORD"
-      />
+        />
+        
       <div style = {{textAlign : 'center'}}>
       {/* 임시로 Title 페이지로 이동하게 세팅 */}
       <Link to="/Title" style={{ textDecoration: "none" }}>

@@ -26,6 +26,12 @@ const StyledButton = styled.button`
     background: #BA55D3;
     margin-left: 35px;
     `}
+  ${(props) =>
+    props.signup2 &&
+    `
+    color: #fff;
+    background: #BA55D3;
+    `}
 `;
 
 export default function Button({ children, ...props }) {
