@@ -10,7 +10,7 @@ return (
     <div className = "title-text-black">GanZi Salon</div>
 
     
-    <Link to="/" style={{ textDecoration: "none" }}>
+    <Link to="/History" style={{ textDecoration: "none" }}>
     <Button > History</Button>
     
     </Link>
