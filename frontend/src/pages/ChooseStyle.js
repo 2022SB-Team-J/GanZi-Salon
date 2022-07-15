@@ -11,7 +11,8 @@ return (
     <div className = "title-text-black">Choose hair style or upload</div>
     
     <div style={{display: 'flex' ,  justifyContent:'center'}}>
-    <div className = "testimage-1"></div>
+    {/* 스타일/컬러 적용할 모델 이미지 파일 4개 넣어주시면 됩니다.*/}
+    <div className = "testimage-1"></div> 
     <div className = "testimage-2"></div>
     <div className = "testimage-3"></div>
     <div className = "testimage-4"></div>
@@ -21,7 +22,10 @@ return (
     <Link to="/History" style={{ textDecoration: "none" }}>
         <Button blueButton >Loading history</Button>
     </Link>
+    {/*임시로 스타일 적용 완료 페이지로 이동시켰습니다.*/}
+    <Link to="/AppliedStyle" style={{ textDecoration: "none" }}>
         <Button redButton >Image upload</Button>
+    </Link>
     </div>
     
     </div>

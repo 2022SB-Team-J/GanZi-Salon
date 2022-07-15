@@ -18,7 +18,7 @@ return (
     <Container className="background-image-black" >
       
     <div style = {{marginTop : '250px', marginBottom: '30px'}}>
-    <div className = "title-text-white"  >GANZI SALON</div>
+    <div className = "title-text-white-2"  >GANZI SALON</div>
     <div>
         <Input 
         id="id"

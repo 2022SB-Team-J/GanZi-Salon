@@ -3,18 +3,28 @@
     color:white;
     width: 100%;
     text-align:center;
-    font-size: 2.4rem;
-    font-family:'ariblk';
+    font-size: 60px;
+    font-family:'font';
   }
+  .title-text-white-2 {
+    
+    color:white;
+    width: 100%;
+    text-align:center;
+    font-size: 60px;
+    font-family:'font';
+    margin-bottom: 40px;
+  }
+  
   .title-text-black {
     
     color:black;
     width: 100%;
     text-align:center;
-    font-size: 2.4rem;
+    font-size: 60px;
     font-family:'ariblk';
     padding-top: 90px;
-
+    font-family: 'font';
     
   }
 
@@ -44,7 +54,7 @@
   
   margin-top: 75px;
   
-  background-image: url("./images/imagepreview.png");
+  background-image: url("./images/testimage.png");
   background-size: cover;
   width : 250px;
   height : 250px;
@@ -53,7 +63,7 @@
 {
   margin-top: 75px;
   margin-left: 30px;
-  background-image: url("./images/imagepreview.png");
+  background-image: url("./images/testimage.png");
   background-size: cover;
   width : 250px;
   height : 250px;
@@ -62,7 +72,7 @@
 {
   margin-top: 75px;
   margin-left: 30px;
-  background-image: url("./images/imagepreview.png");
+  background-image: url("./images/testimage.png");
   background-size: cover;
   width : 250px;
   height : 250px;
@@ -71,8 +81,31 @@
 {
   margin-top: 75px;
   margin-left: 30px;
-  background-image: url("./images/imagepreview.png");
+  background-image: url("./images/testimage.png");
   background-size: cover;
   width : 250px;
   height : 250px;
+}
+
+.title-test-image
+{
+  margin-top: 30px;
+  background-image: url("./images/testimage.png");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}
+
+.selfie-text
+{
+  text-align: center;
+  width: 100vw;
+  font-size: 30px;
+  margin-top: 30px;
+  font-family: 'font';
+}
+
+@font-face {
+  font-family: "font";
+  src: url(./font/font.ttf);
 }
