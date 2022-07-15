@@ -17,14 +17,14 @@ return (
     
 
     <div style= {{textAlign : 'center'}}>
-    <Link to="/ChangeStyle" style={{ textDecoration: "none" }}>
+    <Link to="/ChooseStyle" style={{ textDecoration: "none" }}>
 
         <Button style >Change Style</Button>
 
     </Link>
     
     
-    <Link to="/ChangeColor" style={{ textDecoration: "none" }}>
+    <Link to="/ChooseColor" style={{ textDecoration: "none" }}>
 
         <Button color >Change Color</Button>
 

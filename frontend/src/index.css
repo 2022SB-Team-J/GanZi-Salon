@@ -38,3 +38,41 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
+.testimage-1
+{
+  
+  margin-top: 75px;
+  
+  background-image: url("./images/imagepreview.png");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}
+.testimage-2
+{
+  margin-top: 75px;
+  margin-left: 30px;
+  background-image: url("./images/imagepreview.png");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}
+.testimage-3
+{
+  margin-top: 75px;
+  margin-left: 30px;
+  background-image: url("./images/imagepreview.png");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}
+.testimage-4
+{
+  margin-top: 75px;
+  margin-left: 30px;
+  background-image: url("./images/imagepreview.png");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}

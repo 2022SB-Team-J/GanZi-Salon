@@ -1,0 +1,32 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import Button from "../components/PageButton";
+
+
+function ChooseStyle() {
+    
+return (
+    <div className="background-image-white">
+
+    <div className = "title-text-black">Choose hair style or upload</div>
+    
+    <div style={{display: 'flex' ,  justifyContent:'center'}}>
+    <div className = "testimage-1"></div>
+    <div className = "testimage-2"></div>
+    <div className = "testimage-3"></div>
+    <div className = "testimage-4"></div>
+    </div>
+
+    <div style= {{textAlign : 'center'}}>
+    <Link to="/History" style={{ textDecoration: "none" }}>
+        <Button blueButton >Loading history</Button>
+    </Link>
+        <Button redButton >Image upload</Button>
+    </div>
+    
+    </div>
+    
+);
+}
+
+export default ChooseStyle;
