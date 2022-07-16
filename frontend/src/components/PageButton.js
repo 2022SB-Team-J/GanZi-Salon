@@ -9,7 +9,7 @@ import styled from "styled-components";
     line-height: 49px;
     display: block;
     width: 360px;
-    height: 100px;
+    height: 70px;
     margin: 75px auto;
     cursor: pointer;
     text-align: center;

@@ -4,7 +4,6 @@ import AppliedStyle from './pages/AppliedStyle';
 import AppliedStyleFinal from './pages/AppliedStyleFinal';
 import ChooseColor from './pages/ChooseColor';
 import AppliedColor from './pages/AppliedColor';
-import Final from './pages/Final';
 import History from './pages/History';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
@@ -35,10 +34,7 @@ const routes = [
         page : '/AppliedColor',
         component : AppliedColor
     },
-    {
-        page : '/Final',
-        component : Final
-    },
+    
     {
         page : '/History',
         component : History

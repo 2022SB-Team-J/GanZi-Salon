@@ -6,7 +6,7 @@ import Button from "../components/PageButton";
 function AppliedStyleFinal() {
     
 return (
-    <div className="background-image-white">
+    <div className="background-image-main">
 
     <div className = "title-text-black">Beautiful Hair!</div>
     

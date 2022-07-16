@@ -6,7 +6,7 @@ import Button from "../components/PageButton";
 function ChooseColor() {
     
 return (
-    <div className="background-image-white">
+    <div className="background-image-main">
 
     <div className = "title-text-black">Choose hair color or upload</div>
     

@@ -6,7 +6,7 @@ import Button from "../components/PageButton";
 function ChooseStyle() {
     
 return (
-    <div className="background-image-white">
+    <div className="background-image-main">
 
     <div className = "title-text-black">Choose hair style or upload</div>
     
@@ -22,7 +22,7 @@ return (
     <Link to="/History" style={{ textDecoration: "none" }}>
         <Button blueButton >Loading history</Button>
     </Link>
-    {/*임시로 스타일 적용 완료 페이지로 이동시켰습니다.*/}
+    {/*임시로 스타일/색깔 적용 완료 페이지로 이동시켰습니다.*/}
     <Link to="/AppliedStyle" style={{ textDecoration: "none" }}>
         <Button redButton >Image upload</Button>
     </Link>

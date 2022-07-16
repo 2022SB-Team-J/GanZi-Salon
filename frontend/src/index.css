@@ -49,6 +49,17 @@
     background-attachment: fixed;
 }
 
+.background-image-main
+{   
+    width : 100vw;
+    height : 100vh;
+    margin : 0;
+    padding : 0;
+    background: url("./images/mainimage.jpg") no-repeat center fixed;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .testimage-1
 {
   
