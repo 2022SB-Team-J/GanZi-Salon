@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   frontend:
@@ -18,4 +18,3 @@ services:
       - 8000:8000
     volumes:
     - .:/user/src/gz-salon
-
