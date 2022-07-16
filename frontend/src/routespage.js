@@ -7,11 +7,12 @@ import AppliedColor from './pages/AppliedColor';
 import Final from './pages/Final';
 import History from './pages/History';
 import Login from './pages/Login';
+import SignUp from './pages/SignUp';
 
 
 const routes = [
     {
-        page : '/',
+        page : '/Title',
         component : Title
     },
     {
@@ -43,9 +44,14 @@ const routes = [
         component : History
     },
     {
-        page : '/Login',
+        page : '/',
         component : Login
     },
+    {
+        page : '/SignUp',
+        component : SignUp
+    },
+    
 ];
 
 export default routes;
