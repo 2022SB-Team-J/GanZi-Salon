@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../components/PageButton";
+import Button from "../../components/PageButton";
 
 
 function AppliedStyle() {
@@ -18,9 +18,11 @@ return (
     <Link to="/Title" style={{ textDecoration: "none" }}>
         <Button blueButton >Done & Save</Button>
     </Link>
+    
+   
     <Link to="/ChooseColor" style={{ textDecoration: "none" }}>
         <Button redButton >Change hair color</Button>
-    </Link>
+    </Link> 
     </div>
     
     </div>

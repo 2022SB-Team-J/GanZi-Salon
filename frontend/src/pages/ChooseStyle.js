@@ -23,7 +23,7 @@ return (
         <Button blueButton >Loading history</Button>
     </Link>
     {/*임시로 스타일/색깔 적용 완료 페이지로 이동시켰습니다.*/}
-    <Link to="/AppliedStyle" style={{ textDecoration: "none" }}>
+    <Link to="/AppliedStyleFinal" style={{ textDecoration: "none" }}>
         <Button redButton >Image upload</Button>
     </Link>
     </div>

@@ -26,12 +26,12 @@ return (
 
     </Link>
     
-    
+{/*     Color 기능 제거
     <Link to="/ChooseColor" style={{ textDecoration: "none" }}>
 
         <Button color >Change Color</Button>
 
-    </Link>
+    </Link> */}
     </div>
     </div>
     
