@@ -1,3 +1,4 @@
+
 import React from "react";
 import styled from "styled-components";
 
@@ -10,7 +11,7 @@ import styled from "styled-components";
     height: 80px;
     margin-top: 37px;
     margin-left: 150px;
-    margin: 100px auto;
+    margin: 25px auto;
     display: block;
     cursor: pointer;
     color: black;
@@ -27,9 +28,7 @@ import styled from "styled-components";
     display: inline-block;
     width: 250px;
     margin-left: 0px;
-    margin: 40px auto;
     `
-    
     }
 
     ${(props) =>

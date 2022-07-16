@@ -17,7 +17,9 @@ return (
     <div className = "testimage-3"></div>
     <div className = "testimage-4"></div>
     </div>
-
+    <div>
+    <input type="file" accept="image/*"/>
+    </div>
     <div style= {{textAlign : 'center'}}>
     <Link to="/History" style={{ textDecoration: "none" }}>
         <Button blueButton >Loading History</Button>

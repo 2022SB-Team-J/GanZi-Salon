@@ -1,3 +1,4 @@
+import Upload from './pages/Upload';
 import Title from './pages/Title';
 import ChooseStyle from './pages/ChooseStyle';
 import AppliedStyle from './pages/backupPages/AppliedStyle';
@@ -11,8 +12,8 @@ import SignUp from './pages/SignUp';
 
 const routes = [
     {
-        page : '/Title',
-        component : Title
+        page : '/Upload',
+        component : Upload
     },
     {
         page : '/ChooseStyle',
@@ -46,6 +47,10 @@ const routes = [
     {
         page : '/SignUp',
         component : SignUp
+    },
+    {
+        page : '/Title',
+        component : Title
     },
     
 ];

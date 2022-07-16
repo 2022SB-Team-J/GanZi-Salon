@@ -15,23 +15,16 @@ return (
     
     </Link>
     <div style={{display: 'flex' ,  justifyContent:'center'}}>
-    {/* 스타일/컬러 적용할 모델 이미지 파일 4개 넣어주시면 됩니다.*/}
-    <div className = "title-test-image"></div> 
-    </div>
-    <div className="selfie-text">Upload your selfie</div>
-    <div style= {{textAlign : 'center'}}>
-    <Link to="/ChooseStyle" style={{ textDecoration: "none" }}>
+    
 
-        <Button style >Change Style</Button>
+    </div>
+    
+    <div style= {{textAlign : 'center'}}>
+    <Link to="/Upload" style={{ textDecoration: "none" }}>
+
+        <Button style >Upload Selfie</Button>
 
     </Link>
-    
-{/*     Color 기능 제거
-    <Link to="/ChooseColor" style={{ textDecoration: "none" }}>
-
-        <Button color >Change Color</Button>
-
-    </Link> */}
     </div>
     </div>
     
