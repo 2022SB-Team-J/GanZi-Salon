@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "package": "^1.0.1"
+  }
+}
