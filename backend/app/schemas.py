@@ -3,10 +3,10 @@
 from typing import Sequence
 from pydantic import BaseModel
 
-# Recipe : BaseModel - from pydantic- 상속
 class User(BaseModel):
     id: str
     name: str
+    gender: str
     password: str
     active: bool
 
@@ -14,8 +14,10 @@ class User(BaseModel):
 class UserCreate(BaseModel):
     id: str
     name: str
+    gender: str
     password: str
     active: bool
+    submitter_id: int
 
 # 3  uses Pydantic’s recursive capability to define a field
 #   that refers to another Pydantic class we’ve previously defined, the Recipe class
