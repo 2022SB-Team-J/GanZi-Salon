@@ -26,13 +26,17 @@ api_router = APIRouter(
 #
 #     return JSONResponse(dicted_user)
 
-@api_router.post("/register/form")
-async def regiester(username: str = Form(),
-                    password: str = Form(),
-                    id: str = Form(),
-                    gender: str = Form()):
-    return {"username": username,
-            "password" : password,
-            "id" : id,
-            "gender" : gender
-            }
+# @api_router.post("/register/form")
+# async def regiester(username: str = Form(),
+#                     password: str = Form(),
+#                     id: str = Form(),
+#                     gender: str = Form()):
+#     return {"username": username,
+#             "password" : password,
+#             "id" : id,
+#             "gender" : gender
+#             }
+
+@api_router.post("/register/test")
+async def register(user:User):
+    return user
