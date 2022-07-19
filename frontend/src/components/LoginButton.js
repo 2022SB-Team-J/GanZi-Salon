@@ -17,13 +17,13 @@ const StyledButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 25px;
-  background-color: #D8BFD8;
+  background-color: #BA55D3;
   
   ${(props) =>
     props.signup &&
     `
     color: #fff;
-    background: #BA55D3;
+    background: #D8BFD8;
     margin-left: 35px;
     `}
   ${(props) =>
