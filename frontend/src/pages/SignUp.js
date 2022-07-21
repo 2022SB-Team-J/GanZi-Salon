@@ -45,7 +45,7 @@ return (
       
     <form style = {{marginTop : '250px', marginBottom: '30px'}}
             onSubmit={handleSubmit}>
-    <form className = "title-text-white"  >GANZI SALON</form>
+    <div className = "title-text-white"  >GANZI SALON</div>
 
         <div>
         <Input
