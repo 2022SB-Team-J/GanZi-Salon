@@ -180,13 +180,22 @@ class Solver(nn.Module):
         src = next(InputFetcher(loaders.src, None, args.latent_dim, 'test'))
         ref = next(InputFetcher(loaders.ref, None, args.latent_dim, 'test'))
 
-        fname = ospj(args.result_dir, 'reference.jpg')
+        if os.listdir (args.result_dir): # 빈 디렉터리가 아니라면
+            fname = ospj(args.result_dir, 'reference2.jpg')
+        else:   # 빈 디렉터리라면
+            fname = ospj(args.result_dir, 'reference3.jpg')
         print('Working on {}...'.format(fname))
+
+        # 아마도 여기가 output 사진 코드일듯. utils.py에서도 고쳐줘야함
         utils.translate_using_reference(nets_ema, args, src.x, ref.x, ref.y, fname)
 
-        fname = ospj(args.result_dir, 'video_ref.mp4')
-        print('Working on {}...'.format(fname))
-        utils.video_ref(nets_ema, args, src.x, ref.x, ref.y, fname)
+        # if os.listdir (args.result_dir):
+        #     fname = ospj(args.result_dir, 'video_ref.mp4')
+        # else:
+        #     fname = ospj(args.result_dir, 'video_ref1.mp4')
+
+        # print('Working on {}...'.format(fname))
+        # utils.video_ref(nets_ema, args, src.x, ref.x, ref.y, fname)
 
     @torch.no_grad()
     def evaluate(self):
