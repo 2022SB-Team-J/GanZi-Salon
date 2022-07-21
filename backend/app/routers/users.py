@@ -11,6 +11,7 @@ router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
+
 USERS = [
     {
         "id": "1",
@@ -35,10 +36,25 @@ class User(BaseModel) :
     password : str
     active : bool
 
+# 회원가입
+@router.post("/register",
+            status_code=201,
+            summary="회원가입")
+async def register(user:User):
+    return user
 
 
+# 로그인
+@router.post("/login",
+             status_code=201,
+             summary="로그인")
+async def register(user:User):
+    return user
 
-@router.get("/users/", tags=["users"])
+# 회원정보 조회
+@router.get("/users/", tags=["users"],
+            status_code=201,
+            summary="회원정보 조회")
 async def read_users():
     return [{"username": "Rick"}, {"username": "Morty"}]
 

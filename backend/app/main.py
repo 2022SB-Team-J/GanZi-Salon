@@ -4,14 +4,13 @@ from fastapi import FastAPI, APIRouter, Depends, HTTPException
 # 1 딕셔너리 형태로 예시 데이터 생성
 from .schemas import User
 
-from .routers import users, register
+from .routers import users
 from .dependencies import get_query_token, get_token_header
 
 
 
 app = FastAPI(title='gz-salon')
 app.include_router(users.router)
-app.include_router(register.api_router)
 
 
 
