@@ -8,7 +8,7 @@ from ..models import UserCreate, Token, User
 
 api_router = APIRouter(
     tags=["register"],
-    dependencies=[Depends(get_query_token)]
+    # dependencies=[Depends(get_query_token)]
 )
 
 # https://github.com/tiangolo/full-stack-fastapi-postgresql/blob/master/%7B%7Bcookiecutter.project_slug%7D%7D/backend/app/app/crud/crud_user.py
