@@ -19,3 +19,14 @@ services:
     volumes:
     - .:/user/src/gz-salon
 
+  mysql:  
+    build: ./backend
+    image: mysql:8.0.17
+    ports:  
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${DB_DATABASE}"
+    volumes:
+      - .:/user/src/gz-salon/mysql
+
