@@ -1,10 +1,10 @@
 import  bcrypt
 from fastapi import APIRouter, HTTPException, Depends, Form
-from pydantic import BaseModel
 from starlette.responses import JSONResponse
 
 from ..dependencies import get_query_token
 from ..models import UserCreate, Token, User
+
 
 api_router = APIRouter(
     tags=["register"],
