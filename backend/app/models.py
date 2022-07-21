@@ -16,11 +16,13 @@ class UserCreate(BaseModel):
     name: str
     gender: str
     password: str
-    active: bool
-    submitter_id: int
+    check_password: str
 
 # 3  uses Pydantic’s recursive capability to define a field
 #   that refers to another Pydantic class we’ve previously defined, the Recipe class
 class UserSearchResults(BaseModel):
     # 4 Sequence (which is an iterable with support for len and __getitem__) of Recipes.
     results: Sequence[User]
+
+class Token(BaseModel):
+    Authorization: str = None
