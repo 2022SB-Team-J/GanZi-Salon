@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# UserDB/mysql
+.backend.app.sql_app2.secrets.json

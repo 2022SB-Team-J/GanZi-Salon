@@ -29,6 +29,6 @@ class Image(Base):
 
     autonum = Column(Integer, primary_key=True,  autonum = True, index = True) #you can see user : item is constructed 1 : N forms
     user_id = Column(String(20), models.ForeignKey('Gz_Users',on_delete= models.CASCADE), index=True)
-
-    create_at = Column(String(20), datetime.datetime.now() )
+    image_url = Column(Text, index = True)
+    create_at = Column(String(20), datetime.datetime.now(),index = True )
 #우선 datetime 을 저장하기위해 String 형태로 저장하게 하였으나, 더 나은 방법이있다면 언급부탁드립니다.
