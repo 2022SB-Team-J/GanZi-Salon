@@ -4,25 +4,31 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 #import needed one
 from .database import Base
+from datetime import datetime
 # . means local
 
 class User(Base):
-    __tablename__ = "users"
+    #user table setup
+    __tablename__ = "Gz_Users"
 
-    id = Column(String(20), primary_key=True, index=True)
+    user_id = Column(String(20), primary_key=True, index=True)
     name = Column(String(20), unique=True, index=True)
-    hashed_password = Column(String(100))
-    is_active = Column(Boolean, default=True)
+    password = Column(String(100) )
+    create_at = Column(String(100), default = datetime.datetime.now() )
+    upload_at = Column(String(100), default = datetime.datetime.now() )
+
+    active = Column(Boolean, default=True)
+    gender = Column(String(1), default = 'N' )
 
     images = relationship("Image", back_populates="owner")
 
 
+    #image table setup
 class Image(Base):
-    __tablename__ = "images"
+    __tablename__ = "Images"
 
-    id = Column(Integer, primary_key=True, index=True) #you can see user : item is constructed 1 : N forms
-    title = Column(String(20), index=True)
-    description = Column(String(20), index=True)
-    owner_id = Column(Integer, ForeignKey("users.id"))
+    autonum = Column(Integer, primary_key=True,  autonum = True, index = True) #you can see user : item is constructed 1 : N forms
+    user_id = Column(String(20), models.ForeignKey('Gz_Users',on_delete= models.CASCADE), index=True)
 
-    owner = relationship("User", back_populates="images")
+    create_at = Column(String(20), datetime.datetime.now() )
+#우선 datetime 을 저장하기위해 String 형태로 저장하게 하였으나, 더 나은 방법이있다면 언급부탁드립니다.

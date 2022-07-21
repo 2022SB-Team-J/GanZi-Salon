@@ -8,15 +8,28 @@ from sqlalchemy.orm import Session, sessionmaker
 
 import sqlalchemy.orm.session
 
-import sql_app2.models
+from . import models
 import sql_app2.database
 import sql_app2.schemas
 import sql_app2.crud
 
+from models import Pharmacy, Worker
+
+HOSTNAME = 'localhost'
+#http://ec2-3-86-116-5.compute-1.amazonaws.com/ <= 우리 서버 주소 
+PORT = 3306
+USERNAME = 'ubuntu'
+PASSWORD = 'os.path.dirname("private.pem")'
+#이곳에 my sql 패스워드 화일이 들어가야하나, 아직 정해지지 않았으므로 일단 EC2에 대한 정보입력, 테스트시 변경
+DBNAME = 'userdb'
+#열리지 않을경우, mysql workbench로 'userdb'라는 이름의 db를 생성해야할 수 있음
+#MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/userdb'
+MYSQL_URL = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DBNAME}'
+
+#MYSQL_URL = 'mysql+pymysql://root:administrator@localhost:3306/userdb'
+app = FastAPI()
 
 sql_app2.models.Base.metadata.create_all(bind=sql_app2.database.engine)
-MYSQL_URL = 'mysql+pymysql://root:administrator@localhost:3306/userdb'
-app = FastAPI()
 
 
 # Dependency
@@ -35,7 +48,7 @@ def create_user2(user:sql_app2.schemas.UserCreate, db: Session = Depends(get_db)
         raise HTTPException(status_code=400, detail="Email already registered")
     return sql_app2.crud.create_user(db=db, user=user)
 
-
+@app.post("/Images",response_model=)
 
 
 #first typed sent
