@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/65939213/180504631-14a563e3-1281-4bb7-bcf3-ee449074828b.png)
+![image](https://user-images.githubusercontent.com/65939213/180509669-ae084a9e-de4f-430e-a5bf-3d86f7887520.png)
 
 ##머리를 관리하기 전에 내 얼굴을 먼저 보자!
 
