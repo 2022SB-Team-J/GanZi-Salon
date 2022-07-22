@@ -1,15 +1,26 @@
-from typing import Union
+from typing import Union, Any
+from fastapi import FastAPI, APIRouter, Depends, HTTPException
 
-from fastapi import FastAPI
+# 1 딕셔너리 형태로 예시 데이터 생성
+from .schemas import User
 
-app = FastAPI()
+from .routers import users
+from .dependencies import get_query_token, get_token_header
+
+
+
+app = FastAPI(title='gz-salon')
+app.include_router(users.router)
+
 
 
 @app.get("/")
-def read_root():
-    return {"Hello": "World"}
+async def root():
+    return {"message": "Hello World"}
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+# @app.get("/", status_code=200)
+# def root() -> dict:
+#     """
+#     Root Get
+#     """
+#     return {"msg": "Hello, World!"}
