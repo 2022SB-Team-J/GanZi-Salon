@@ -9,7 +9,7 @@ from datetime import datetime
 
 class User(Base):
     #user table setup
-    __tablename__ = "Gz_Users"
+    __tablename__ = "Users"
 
     user_id = Column(String(20), primary_key=True, index=True)
     name = Column(String(20), unique=True, index=True)
@@ -29,7 +29,7 @@ class Image(Base):
     __tablename__ = "Images"
 
     autonum = Column(Integer, primary_key=True,  autonum = True, index = True) #you can see user : item is constructed 1 : N forms
-    user_id = Column(String(20), ForeignKey('Gz_Users', index=True))
+    user_id = Column(String(20), ForeignKey('Users', index=True))
     image_url = Column(String(100), index = True)
     create_at = Column(String(30), datetime.datetime.now(),index = True )
 #우선 datetime 을 저장하기위해 String 형태로 저장하게 하였으나, 더 나은 방법이있다면 언급부탁드립니다.

@@ -6,10 +6,12 @@ from pydantic import BaseModel # 객체 타입설정
 class ImageBase(BaseModel):
     autonum : int
     create_at : str
+    image_url : str
 
 
 class ItemCreate(ImageBase):
     pass
+
 
 
 class Item(ImageBase):

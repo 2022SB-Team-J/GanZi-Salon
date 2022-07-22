@@ -2,7 +2,7 @@
 
 from sqlalchemy.orm import Session
 from . import models, schemas
-import sql_app2.database
+from . import database
 
 # import sql_app.models # 절대경로로 불러오는방법
 # import sql_app.schemas # 절대경로로 불러오는방법

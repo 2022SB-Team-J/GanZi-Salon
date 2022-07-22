@@ -9,9 +9,9 @@ from sqlalchemy.orm import Session, sessionmaker
 import sqlalchemy.orm.session
 
 from . import models
-import sql_app2.database
-import sql_app2.schemas
-import sql_app2.crud
+from . import database
+from . import schemas
+from . import crud
 
 from models import Pharmacy, Worker
 
@@ -21,35 +21,36 @@ PORT = 3306
 USERNAME = 'ubuntu'
 PASSWORD = 'os.path.dirname("private.pem")'
 #이곳에 my sql 패스워드 화일이 들어가야하나, 아직 정해지지 않았으므로 일단 EC2에 대한 정보입력, 테스트시 변경
-DBNAME = 'userdb'
-#열리지 않을경우, mysql workbench로 'userdb'라는 이름의 db를 생성해야할 수 있음
-#MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/userdb'
-MYSQL_URL = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DBNAME}'
+DBNAME = 'someting'
+#열리지 않을경우, mysql workbench로 ' 라는 이름의 db를 생성해야할 수 있음
+#MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/ 
+#MYSQL_URL = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DBNAME}'
 
-#MYSQL_URL = 'mysql+pymysql://root:administrator@localhost:3306/userdb'
+MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/testdb' 
+
 app = FastAPI()
 
-sql_app2.models.Base.metadata.create_all(bind=sql_app2.database.engine)
-
+models.Base.metadata.create_all(bind= database.engine)
 
 # Dependency
+
 def get_db():
-    db = sql_app2.database.SessionLocal()
+    db =  database.SessionLocal()
     try:
         yield db
     finally:
         db.close()
 
-@app.post("/users",response_model=sql_app2.schemas.User)
-def create_user2(user:sql_app2.schemas.UserCreate, db: Session = Depends(get_db)): # 무조건 typing을 해줘야 에러가 발생하지 않음
-    db_user = sql_app2.crud.get_user_by_email(db, email=user.email)
-
+@app.post("/users",response_model= schemas.User)
+def create_user2(user: schemas.UserCreate, db: Session = Depends(get_db)): # 무조건 typing을 해줘야 에러가 발생하지 않음
+    db_user =  crud.get_user_by_eail(db, email=user.email)
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-    return sql_app2.crud.create_user(db=db, user=user)
+    return  crud.create_user(db=db, user=user)
 
-@app.post("/Images",response_model=)
-
+@app.post("/Images",response_model=  schemas.Item)
+def create_image(user: schemas.UserCreate, db: Session = Depends(get_db)): # 무조건 typing을 해줘야 에러가 발생하지 않
+    db_image =  crud.create_image(db, db_URL = user.)
 
 #first typed sent
 
@@ -63,8 +64,8 @@ def create_user2(user:sql_app2.schemas.UserCreate, db: Session = Depends(get_db)
 # #PORT = 3306
 # #USERNAME = 'root'
 # #PASSWORD = 'administrator'
-# #DBNAME = 'userdb'
-# MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/userdb'
+# #DBNAME = ' 
+# MYSQL_URL = f'mysql+pymysql://root:administrator@localhost:3306/ 
 # #MYSQL_URL = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DBNAME}'
 
 # app = FastAPI()
