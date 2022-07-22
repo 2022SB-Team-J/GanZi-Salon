@@ -4,28 +4,7 @@ from starlette import status
 from starlette.responses import JSONResponse
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
-from ..dependencies import get_query_token
 from ..models import UserCreate, Token, User
-
-
-
-
-fake_users_db = {
-    "johndoe": {
-        "id": "johndoe",
-        "username": "John Doe",
-        "gender": "M",
-        "password": "fakehashedsecret",
-        "active": False,
-    },
-    "alice": {
-        "id": "alice",
-        "username": "Alice Wonderson",
-        "gender": "F",
-        "password": "fakehashedsecret2",
-        "active": True,
-    },
-}
 
 
 
