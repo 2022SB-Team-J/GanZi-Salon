@@ -12,10 +12,13 @@ def create_user(db: Session, user: schemas.UserCreate): #파라미터로 받은 
     #schemas에서 지정한 UserCreate를 가져와서 Typehinting 을 하였다.
     fake_hashed_password = user.password + "notreallyhashed"
     #일단 fakehashedpassword를 사용하나, 실제론 사용해선 안된다.
-    db_user = models.User(name=user.name, password=fake_hashed_password)
+    db_user = models.User(create_at = user,user_id = user.user_id ,name=user.name, password=fake_hashed_password,)
     #우선 능력부족으로 name 로 이용중이나 이를 변형해, 이름데이터를 기록할 생각이다.
     db.add(db_user)
     db.commit()
     db.refresh(db_user)
     return db_user
     
+def create_image(db : Session, image : schemas.UserCreate):
+    db_image = models.Image()
+

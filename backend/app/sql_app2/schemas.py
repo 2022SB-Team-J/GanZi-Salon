@@ -22,15 +22,20 @@ class Item(ImageBase):
 
 class UserBase(BaseModel):
     name: str
+    gender : str
+
+
 
 
 class UserCreate(UserBase):
     password: str
+    user_id: str
+    active: bool
+    
+
 
 
 class User(UserBase):
-    user_id: str
-    active: bool
     create_at : str
     update_at : str
 
