@@ -1,14 +1,27 @@
 # 타입 힌트를 지원하기 위한 typing 모듈
 # typing ?  https://www.daleseo.com/python-typing/
+from datetime import datetime
 from typing import Sequence
 from pydantic import BaseModel
 
+# class User(BaseModel):
+    # id: str
+    # name: str
+    # gender: str
+    # password: str
+    # active: bool
 class User(BaseModel):
-    id: str
-    name: str
-    gender: str
-    password: str
-    active: bool
+    client_id: str
+    name: str | None = None
+    password: str | None = None
+    gender: str | None = None
+    active: bool | None = None
+    create_at : datetime | None = None
+    update_at : datetime | None = None
+
+
+class UserInDB(User):
+    hashed_password: str
 
 
 class UserCreate(BaseModel):

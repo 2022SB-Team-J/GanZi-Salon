@@ -11,7 +11,7 @@ from .routers import register, login
 
 
 app = FastAPI(title='gz-salon')
-app.include_router(register.api_router)
+# app.include_router(register.api_router)
 app.include_router(login.api_router)
 
 

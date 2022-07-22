@@ -1,30 +1,24 @@
-from fastapi import APIRouter, HTTPException, Depends
-from typing import Any
-from pydantic import BaseModel
-from starlette.responses import JSONResponse
+from fastapi import Depends, HTTPException, APIRouter
+from fastapi.security import OAuth2PasswordRequestForm
 
-from ..dependencies import get_token_header
+from . import auth
 from ..models import User
 
-api_router = APIRouter(
-    prefix="/login",
-    tags=["login"],
-    # dependencies=[Depends(get_token_header)],
-    responses={404: {"description": "Not found"}},
-)
+api_router = APIRouter()
 
-@api_router.post("/login", status_code=200)
-async def login(reg_info:User):
-    user : User
+@api_router.post("/token")
+async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    user_dict = auth.fake_users_db.get(form_data.id)
+    if not user_dict:
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
+    user = auth.UserInDB(**user_dict)
+    hashed_password = auth.fake_hash_password(form_data.password)
+    if not hashed_password == user.hashed_password:
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
 
-    # 임시 로그인
-    user.id= "admin"
-    user.password= "admin"
-    if not user.id == reg_info.id:
-        return JSONResponse(status_code=400, content=dict("존재하지 않는 아이디입니다."))
+    return {"access_token": user.client_id, "token_type": "bearer"}
 
-        # db 에서 가져올 때 암호화된 password임
-    if not user.password == reg_info.password:
-        return JSONResponse(status_code=400, content=dict("비밀번호를 확인해주세요."))
 
-    return user
+@api_router.get("/users/me")
+async def read_users_me(current_user: User = Depends(auth.get_current_active_user)):
+    return current_user
