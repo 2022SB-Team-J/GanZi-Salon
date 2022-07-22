@@ -107,6 +107,27 @@
   height : 250px;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  width: 100;
+}
+.img-wrapper {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+.img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(50, 50);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+
 .selfie-text
 {
   text-align: center;
