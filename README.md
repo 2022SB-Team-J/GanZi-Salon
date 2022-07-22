@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/65939213/180509669-ae084a9e-de4f-430e-a5bf-3d86f7887520.png)
 
-##머리를 관리하기 전에 내 얼굴을 먼저 보자!
+## 머리를 관리하기 전에 내 얼굴을 먼저 보자!
 
 
   - [1. 소개](#1-소개)
@@ -28,13 +28,13 @@ GanZi-Salon 은 그 솔루션을 여러분에게 제시합니다. 원하는 헤�
 ![image](https://user-images.githubusercontent.com/65939213/180504867-e9a3bf2d-0adb-4f93-8b1a-d115d69bae1d.png)
 
 ## 3. 실행방법
-** npm 모듈 설치 **
+**npm 모듈 설치**
 ```
 cd frontend
 npm i
 ```
 
-** docker 실행 **
+**docker 실행**
 ```
 docker-compose up
 ```
