@@ -4,7 +4,10 @@ from fastapi.security import OAuth2PasswordRequestForm
 from . import auth
 from ..models import User
 
-api_router = APIRouter()
+api_router = APIRouter(
+    tags=["login"],
+    # dependencies=[Depends(get_query_token)]
+)
 
 @api_router.post("/token")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):

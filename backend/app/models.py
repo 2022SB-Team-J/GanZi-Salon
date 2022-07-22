@@ -4,12 +4,7 @@ from datetime import datetime
 from typing import Sequence
 from pydantic import BaseModel
 
-# class User(BaseModel):
-    # id: str
-    # name: str
-    # gender: str
-    # password: str
-    # active: bool
+
 class User(BaseModel):
     user_id: str
     username: str | None = None
