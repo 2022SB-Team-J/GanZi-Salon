@@ -53,7 +53,7 @@ def denormalize(x):
     out = (x + 1) / 2
     return out.clamp_(0, 1)
 
-
+# 이미지 저장 함수, padding-이미지사이거리
 def save_image(x, ncol, filename):
     x = denormalize(x)
     vutils.save_image(x.cpu(), filename, nrow=ncol, padding=0)
@@ -68,7 +68,8 @@ def translate_and_reconstruct(nets, args, x_src, y_src, x_ref, y_ref, filename):
     s_src = nets.style_encoder(x_src, y_src)
     masks = nets.fan.get_heatmap(x_fake) if args.w_hpf > 0 else None
     x_rec = nets.generator(x_fake, s_src, masks=masks)
-    x_concat = [x_src, x_ref, x_fake, x_rec]
+    #x_concat = [x_src, x_ref, x_fake, x_rec]
+    x_concat = [x_fake]
     x_concat = torch.cat(x_concat, dim=0)
     save_image(x_concat, N, filename)
     del x_concat
@@ -114,7 +115,10 @@ def translate_using_reference(nets, args, x_src, x_ref, y_ref, filename):
         x_concat += [x_fake_with_ref]
 
     x_concat = torch.cat(x_concat, dim=0)
-    save_image(x_concat, N+1, filename)
+    #save_image(x_concat, N+1, filename)
+    
+    #ref&src사진 나오지 않고, 합성 사진만 나올 수 있도록 코드 수정
+    save_image(x_fake, N+1, filename)
     del x_concat
 
 
