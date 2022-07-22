@@ -11,9 +11,8 @@ from pydantic import BaseModel
     # password: str
     # active: bool
 class User(BaseModel):
-    client_id: str
-    name: str | None = None
-    password: str | None = None
+    user_id: str
+    username: str | None = None
     gender: str | None = None
     active: bool | None = None
     create_at : datetime | None = None

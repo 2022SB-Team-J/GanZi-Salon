@@ -7,16 +7,16 @@ from ..models import User, UserInDB
 fake_users_db = {
     "johndoe": {
         "user_id": "johndoe",
-        "name": "John Doe",
+        "username": "John Doe",
         "gender": "M",
-        "password": "fakehashedsecret",
+        "hashed_password": "fakehashedsecret",
         "active": False,
     },
     "alice": {
         "user_id": "alice",
-        "name": "Alice Wonderson",
+        "username": "Alice Wonderson",
         "gender": "F",
-        "password": "fakehashedsecret2",
+        "hashed_password": "fakehashedsecret2",
         "active": True,
     },
 }
