@@ -44,6 +44,11 @@ docker-compose up
 | Name    | 정길연                                     | 고원준                                   | 김우현                                       | 김지혜                                 | 장아령                                 |
 | ------- | ---------------------------------------- | ---------------------------------------- | -------------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Profile | <img width="200px" src="https://avatars.githubusercontent.com/u/52391627?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/86594108?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108711890?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108566232?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/65939213?v=4" />                               |
+| ------- | ---------------------------------------- | ---------------------------------------- | -------------------------------------------- | -------------------------------------- | -------------------------------------- |
+| Role    | Team Leader, AI                                     | Frontend                                   | Backend                                       | Frontend                                 | Backend                                 |
+| ------- | ---------------------------------------- | ---------------------------------------- | -------------------------------------------- | -------------------------------------- | -------------------------------------- |
+| gitHub  | [gilyeon00](https://github.com/gilyeon00)                                     | [KoneJ](https://github.com/KoneJ)                                   | [@monitor5](https://github.com/monitor5)                                       | [@wisdomis](https://github.com/wisdomis)                                 | [@aristo0922](https://github.com/aristo0922)                                 |
+
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
 
