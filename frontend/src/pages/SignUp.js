@@ -7,7 +7,7 @@ import Button from "../components/LoginButton";
 import Input from "../components/IdPassword";
 
 //백엔드와 프론트 통신 객체
-import axios from "axios"
+// import axios from "axios"
 
 
 const Container = styled.div`
@@ -18,25 +18,25 @@ const Container = styled.div`
 
 function SignUp() {
 
-//    회원가입 버튼 클릭 시 동작
-//    참고링크 >> https://velog.io/@dev_bomdong/React-회원가입-기능-구현하기
-    const handleSubmit = () => {
-        e.preventDefault();
-        try {
-            fetch('API주소', {
-                method: 'POST',
-                body: JSON.stringify({
-                    username: this.state.username,
-                    id: this.state.id,
-                    password: this.state.password,
-                    gender: 'w'
-                }),
-            })
-                .then(response => response.json());
-        } catch (err) {
-            alert('회원가입 실패입니다.');
-        }
-    };
+// //    회원가입 버튼 클릭 시 동작
+// //    참고링크 >> https://velog.io/@dev_bomdong/React-회원가입-기능-구현하기
+//     const handleSubmit = () => {
+//         e.preventDefault();
+//         try {
+//             fetch('API주소', {
+//                 method: 'POST',
+//                 body: JSON.stringify({
+//                     username: this.state.username,
+//                     id: this.state.id,
+//                     password: this.state.password,
+//                     gender: 'w'
+//                 }),
+//             })
+//                 .then(response => response.json());
+//         } catch (err) {
+//             alert('회원가입 실패입니다.');
+//         }
+//     };
 
 
 return (
@@ -44,7 +44,8 @@ return (
     <Container className="background-image-black" >
       
     <form style = {{marginTop : '250px', marginBottom: '30px'}}
-            onSubmit={handleSubmit}>
+            // onSubmit={handleSubmit}
+            >
     <div className = "title-text-white"  >GANZI SALON</div>
 
         <div>
@@ -82,4 +83,4 @@ return (
   );
 }
 
-export default Login;
+export default SignUp;

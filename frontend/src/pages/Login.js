@@ -35,12 +35,13 @@ return (
         
       <div style = {{textAlign : 'center'}}>
       {/* 임시로 Title 페이지로 이동하게 세팅 */}
-      <Link to="/Title" style={{ textDecoration: "none" }}>
-      <Button>Sign in</Button>
-      </Link> 
       <Link to="/SignUp" style={{ textDecoration: "none" }}>
-      <Button signup>Sign up</Button>
+      <Button>Sign up</Button>
       </Link> 
+      <Link to="/Title" style={{ textDecoration: "none" }}>
+      <Button signup>Sign in</Button>
+      </Link> 
+      
       </div>
       </div>
     </Container>
