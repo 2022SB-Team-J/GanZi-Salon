@@ -4,6 +4,12 @@ from sqlalchemy.orm import sessionmaker
 import json
 import os
 
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_FILE = os.path.join(BASE_DIR,'secrets.json')
 secrets = json.loads(open(SECRET_FILE).read())

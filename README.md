@@ -9,7 +9,7 @@
   - [4. 팀원](#7-팀원)
   
  ## 1. 소개
- ![꼭 잘라봐야만 아나요?](https://capsule-render.vercel.app/api?type=모양&color=auto&height=높이&section=header&text=텍스트&fontSize=폰트크기)
+**꼭 잘라봐야만 아나요?**
 
 미용실에 가지 않고도 헤어스타일이 어떻게 변화할 지 아는 방법 아시는 분?
 
@@ -44,6 +44,9 @@ docker-compose up
 | Name    | 정길연                                     | 고원준                                   | 김우현                                       | 김지혜                                 | 장아령                                 |
 | ------- | ---------------------------------------- | ---------------------------------------- | -------------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Profile | <img width="200px" src="https://avatars.githubusercontent.com/u/52391627?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/86594108?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108711890?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108566232?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/65939213?v=4" />                               |
+| Role    | Team Leader, AI                                     | Frontend                                   | Backend                                       | Frontend                                 | Backend                                 |
+| gitHub  | [gilyeon00](https://github.com/gilyeon00)                                     | [KoneJ](https://github.com/KoneJ)                                   | [@monitor5](https://github.com/monitor5)                                       | [@wisdomis](https://github.com/wisdomis)                                 | [@aristo0922](https://github.com/aristo0922)                                 |
+
 
 ![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
 

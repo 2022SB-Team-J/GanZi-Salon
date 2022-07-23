@@ -8,7 +8,7 @@ from pydantic import BaseModel # 객체 타입설정
 
 class ImageBase(BaseModel):
     autonum : int
-    create_at : str
+    user_id : str
     image_url : str
 
 
@@ -35,7 +35,11 @@ class UserBase(BaseModel):
 class UserCreate(UserBase):
     password: str
     user_id: str
-    active: bool
+    active: str
+    create_at : str
+    upload_at : str
+    name : str
+    gender : str
     
 
 
