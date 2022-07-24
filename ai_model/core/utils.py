@@ -54,10 +54,12 @@ def denormalize(x):
     return out.clamp_(0, 1)
 
 # 이미지 저장 함수, padding-이미지사이거리
-def save_image(x, ncol, filename):
+# def save_image(x, ncol, filename):
+#     x = denormalize(x)
+#     vutils.save_image(x.cpu(), filename, nrow=ncol, padding=0)
+def save_image(x, filename):
     x = denormalize(x)
-    vutils.save_image(x.cpu(), filename, nrow=ncol, padding=0)
-
+    vutils.save_image(x.cpu(), filename, padding=0)
 
 @torch.no_grad()
 def translate_and_reconstruct(nets, args, x_src, y_src, x_ref, y_ref, filename):
@@ -97,6 +99,7 @@ def translate_using_latent(nets, args, x_src, y_trg_list, z_trg_list, psi, filen
 
     x_concat = torch.cat(x_concat, dim=0)
     save_image(x_concat, N, filename)
+    #save_image(x_fake, N, filename)
 
 
 @torch.no_grad()
@@ -116,9 +119,8 @@ def translate_using_reference(nets, args, x_src, x_ref, y_ref, filename):
 
     x_concat = torch.cat(x_concat, dim=0)
     #save_image(x_concat, N+1, filename)
-    
-    #ref&src사진 나오지 않고, 합성 사진만 나올 수 있도록 코드 수정
-    save_image(x_fake, N+1, filename)
+    #save_image(x_fake, N+1, filename)
+    save_image(x_fake, filename)
     del x_concat
 
 
@@ -152,52 +154,52 @@ def debug_image(nets, args, inputs, step):
 # ======================= #
 
 
-def sigmoid(x, w=1):
-    return 1. / (1 + np.exp(-w * x))
+# def sigmoid(x, w=1):
+#     return 1. / (1 + np.exp(-w * x))
 
 
-def get_alphas(start=-5, end=5, step=0.5, len_tail=10):
-    return [0] + [sigmoid(alpha) for alpha in np.arange(start, end, step)] + [1] * len_tail
+# def get_alphas(start=-5, end=5, step=0.5, len_tail=10):
+#     return [0] + [sigmoid(alpha) for alpha in np.arange(start, end, step)] + [1] * len_tail
 
 
-def interpolate(nets, args, x_src, s_prev, s_next):
-    ''' returns T x C x H x W '''
-    B = x_src.size(0)
-    frames = []
-    masks = nets.fan.get_heatmap(x_src) if args.w_hpf > 0 else None
-    alphas = get_alphas()
+# def interpolate(nets, args, x_src, s_prev, s_next):
+#     ''' returns T x C x H x W '''
+#     B = x_src.size(0)
+#     frames = []
+#     masks = nets.fan.get_heatmap(x_src) if args.w_hpf > 0 else None
+#     alphas = get_alphas()
 
-    for alpha in alphas:
-        s_ref = torch.lerp(s_prev, s_next, alpha)
-        x_fake = nets.generator(x_src, s_ref, masks=masks)
-        entries = torch.cat([x_src.cpu(), x_fake.cpu()], dim=2)
-        frame = torchvision.utils.make_grid(entries, nrow=B, padding=0, pad_value=-1).unsqueeze(0)
-        frames.append(frame)
-    frames = torch.cat(frames)
-    return frames
+#     for alpha in alphas:
+#         s_ref = torch.lerp(s_prev, s_next, alpha)
+#         x_fake = nets.generator(x_src, s_ref, masks=masks)
+#         entries = torch.cat([x_src.cpu(), x_fake.cpu()], dim=2)
+#         frame = torchvision.utils.make_grid(entries, nrow=B, padding=0, pad_value=-1).unsqueeze(0)
+#         frames.append(frame)
+#     frames = torch.cat(frames)
+#     return frames
 
 
-def slide(entries, margin=32):
-    """Returns a sliding reference window.
-    Args:
-        entries: a list containing two reference images, x_prev and x_next, 
-                 both of which has a shape (1, 3, 256, 256)
-    Returns:
-        canvas: output slide of shape (num_frames, 3, 256*2, 256+margin)
-    """
-    _, C, H, W = entries[0].shape
-    alphas = get_alphas()
-    T = len(alphas) # number of frames
+# def slide(entries, margin=32):
+#     """Returns a sliding reference window.
+#     Args:
+#         entries: a list containing two reference images, x_prev and x_next, 
+#                  both of which has a shape (1, 3, 256, 256)
+#     Returns:
+#         canvas: output slide of shape (num_frames, 3, 256*2, 256+margin)
+#     """
+#     _, C, H, W = entries[0].shape
+#     alphas = get_alphas()
+#     T = len(alphas) # number of frames
 
-    canvas = - torch.ones((T, C, H*2, W + margin))
-    merged = torch.cat(entries, dim=2)  # (1, 3, 512, 256)
-    for t, alpha in enumerate(alphas):
-        top = int(H * (1 - alpha))  # top, bottom for canvas
-        bottom = H * 2
-        m_top = 0  # top, bottom for merged
-        m_bottom = 2 * H - top
-        canvas[t, :, top:bottom, :W] = merged[:, :, m_top:m_bottom, :]
-    return canvas
+#     canvas = - torch.ones((T, C, H*2, W + margin))
+#     merged = torch.cat(entries, dim=2)  # (1, 3, 512, 256)
+#     for t, alpha in enumerate(alphas):
+#         top = int(H * (1 - alpha))  # top, bottom for canvas
+#         bottom = H * 2
+#         m_top = 0  # top, bottom for merged
+#         m_bottom = 2 * H - top
+#         canvas[t, :, top:bottom, :W] = merged[:, :, m_top:m_bottom, :]
+#     return canvas
 
 
 # @torch.no_grad()
@@ -278,6 +280,6 @@ def slide(entries, margin=32):
 #     process.wait()
 
 
-def tensor2ndarray255(images):
-    images = torch.clamp(images * 0.5 + 0.5, 0, 1)
-    return images.cpu().numpy().transpose(0, 2, 3, 1) * 255
+# def tensor2ndarray255(images):
+#     images = torch.clamp(images * 0.5 + 0.5, 0, 1)
+#     return images.cpu().numpy().transpose(0, 2, 3, 1) * 255
