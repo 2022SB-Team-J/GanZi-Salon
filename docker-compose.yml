@@ -21,17 +21,19 @@ services:
 
 
   db:    # 서비스명 
-    image: mysql:8.0.17
-    container_name: mysql-server
+    image: mysql:8.0.29
+    platform: linux/amd64
     ports:  
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
       MYSQL_DATABASE: "${DB_DATABASE}"  
     volumes:
-      - ./mysql/data:/var/lib/mysql
-      - ./mysql/conf:/etc/mysql/conf.d
+      - mysql_data:/var/lib/mysql
     restart: always
-    build: ./mysql
     #호스트 ./data에 데이터를 저장시키고, ./conf를 통하여 mysql.conf를 공유
+    
+volumes : 
+  mysql_data:
+
 
