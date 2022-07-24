@@ -5,3 +5,4 @@ docker-compose*
 .git
 .gitignore
 .vscode
+*.iml
