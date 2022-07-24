@@ -19,14 +19,21 @@ services:
     volumes:
     - .:/user/src/gz-salon
 
-  mysql:  
-    build: ./backend
-    image: mysql:8.0.17
+
+  db:    # 서비스명 
+    image: mysql:8.0.29
+    platform: linux/amd64
     ports:  
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "${DB_DATABASE}"
+      MYSQL_DATABASE: "${DB_DATABASE}"  
     volumes:
-      - .:/user/src/gz-salon/mysql
+      - mysql_data:/var/lib/mysql
+    restart: always
+    #호스트 ./data에 데이터를 저장시키고, ./conf를 통하여 mysql.conf를 공유
+    
+volumes : 
+  mysql_data:
+
 

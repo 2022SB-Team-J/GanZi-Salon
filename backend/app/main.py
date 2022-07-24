@@ -1,7 +1,5 @@
-
 from typing import Union
 from fastapi import FastAPI
-from . import userdb.main
 
 app = FastAPI()
 
