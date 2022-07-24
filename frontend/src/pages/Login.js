@@ -14,9 +14,9 @@ const Container = styled.div`
 
 function Login() {
 return (
+  <div className = "background-image-black">
+    <Container  >
     
-    <Container className="background-image-black" >
-      
     <div style = {{marginTop : '250px', marginBottom: '30px'}}>
     <div className = "title-text-white-2"  >GANZI SALON</div>
     <div>
@@ -44,7 +44,9 @@ return (
       
       </div>
       </div>
+      
     </Container>
+    </div>
   );
 }
 
