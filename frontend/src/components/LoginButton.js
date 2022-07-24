@@ -27,7 +27,7 @@ const StyledButton = styled.button`
     margin-left: 35px;
     `}
   ${(props) =>
-    props.signup2 &&
+    props.signin &&
     `
     color: #fff;
     background: #BA55D3;
