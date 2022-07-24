@@ -10,7 +10,7 @@ api_router = APIRouter(
 )
 
 @api_router.post("/token")
-async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+async def 사용자_로그인(form_data: OAuth2PasswordRequestForm = Depends()):
     user_dict = auth.fake_users_db.get(form_data.username)
     if not user_dict:
         raise HTTPException(status_code=400, detail="Incorrect username or password")
