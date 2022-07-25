@@ -7,23 +7,17 @@ from pydantic import BaseModel
 
 class User(BaseModel):
     user_id: str
-    username: str | None = None
+    username: str
     gender: str | None = None
-    active: bool | None = None
-    create_at : datetime | None = None
-    update_at : datetime | None = None
+    active: bool = True
 
 
 class UserInDB(User):
     hashed_password: str
 
+class JoinUser(User):
+    create_at : datetime | None = None
 
-class UserCreate(BaseModel):
-    id: str
-    name: str
-    gender: str
-    password: str
-    check_password: str
 
 # 3  uses Pydantic’s recursive capability to define a field
 #   that refers to another Pydantic class we’ve previously defined, the Recipe class

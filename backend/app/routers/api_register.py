@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from fastapi.security import OAuth2PasswordBearer
 from starlette.responses import JSONResponse
 
-from ..models import UserCreate, User
+from backend.app.auth.schemas import UserCreate, User
 
 
 

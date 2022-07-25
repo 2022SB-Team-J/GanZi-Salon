@@ -1,7 +1,7 @@
 from fastapi import Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer
 
-from ..models import User, UserInDB
+from backend.app.auth.schemas import User, UserInDB
 
 fake_users_db = {
     "johndoe": {
@@ -16,6 +16,13 @@ fake_users_db = {
         "username": "Alice Wonderson",
         "gender": "F",
         "hashed_password": "fakehashedsecret2",
+        "active": True,
+    },
+    "admin": {
+        "user_id": "amin",
+        "username": "test admin",
+        "gender": "N",
+        "hashed_password": "fakehashedsecret3",
         "active": True,
     },
 }
