@@ -1,5 +1,3 @@
-
-
 import React  from "react";
 // import styled from "styled-components";
 import Button from "../components/LoginButton";
@@ -7,7 +5,7 @@ import Input from "../components/IdPassword";
 import axios from "axios";
 import {toast, ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {Formik, ErrorMessage} from "formik";
+import {Formik} from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import "../css/signUp.scss";
@@ -44,7 +42,7 @@ const SignUp = () => {
         autoClose: 2000
         });
         setTimeout(()=> {
-            <Link to="/Title"/>
+            <Link to="/Login"/>
         }, 2000);
 
     } catch (e) {
@@ -131,7 +129,7 @@ const SignUp = () => {
                 </div>
                 </div>
 
-                <Button signup2
+                <Button signin
                 variant="contained"
                 fullWidth
                 type="submit"
