@@ -5,7 +5,6 @@ import Button from "../components/LoginButton";
 import Input from "../components/IdPassword";
 
 const Container = styled.div`
-  margin-top: 100px;
   padding: 20px;
   text-align: center;
 `;
