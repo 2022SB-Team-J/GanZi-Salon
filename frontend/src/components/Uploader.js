@@ -79,7 +79,6 @@ const Uploader = () => {
           Upload
         </Button>
       </div>
-
     </div>
   );
 }
