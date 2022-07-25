@@ -1,7 +1,7 @@
 from fastapi import Depends, HTTPException, status, APIRouter
 from fastapi.security import OAuth2PasswordBearer
 
-from backend.app.auth.schemas import User, UserInDB
+from ..auth.schemas import User, UserInDB
 
 fake_users_db = {
     "johndoe": {

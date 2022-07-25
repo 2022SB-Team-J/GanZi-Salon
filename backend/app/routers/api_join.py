@@ -3,7 +3,7 @@ from fastapi import APIRouter
 from fastapi.security import OAuth2PasswordBearer
 from starlette.responses import JSONResponse
 
-from backend.app.auth.schemas import UserCreate, User
+from ..auth.schemas import JoinUser, User
 
 
 
@@ -18,7 +18,7 @@ api_router = APIRouter(
 # https://github.com/RowinChalas/IonicFastHospital/blob/c49a149875c2f2b723913bdc15a84e3da7ed66cc/src/app/pages/inicio-sesion/inicio-sesion.page.ts
 # https://github.com/zusdn90/fastapi-signUp-API/blob/b3a161201c18e22a5bc8b2a46d7917211faff1a0/backend/app/api/v1/register.py
 @api_router.post("/register_user", status_code=200)
-async def register(reg_info:UserCreate):
+async def register(reg_info:JoinUser):
     # 회원가입
     if reg_info.id :
         return JSONResponse(status_code=400, content=dict(msg="이미 존재하는 ID 입니다."))

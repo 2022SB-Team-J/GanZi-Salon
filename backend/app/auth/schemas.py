@@ -17,7 +17,7 @@ class UserInDB(User):
     hashed_password: str
 
 # 회원가입 시간
-class JoinUser(User):
+class JoinUser(UserInDB):
     create_at : datetime | None = None
 
 # 업데이트 시간
