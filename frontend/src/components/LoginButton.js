@@ -31,6 +31,9 @@ const StyledButton = styled.button`
     `
     color: #fff;
     background: #BA55D3;
+    position: absolute; 
+    left:50%;
+    margin-left:-57px
     `}
 `;
 
