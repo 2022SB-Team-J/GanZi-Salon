@@ -7,7 +7,7 @@ from ..auth.auth import fake_users_db, fake_hash_password
 from ..auth.schemas import UserInDB
 
 api_router = APIRouter(
-    tags=["login"],
+    tags=["로그인"],
     # dependencies=[Depends(get_query_token)]
 )
 @api_router.post("/api/auth/login", status_code=200)
