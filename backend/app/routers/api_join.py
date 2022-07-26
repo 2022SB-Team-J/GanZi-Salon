@@ -41,5 +41,5 @@ async def register(reg_info:JoinUser):
         gender = reg_info.gender,
         create_at = reg_info.create_at
     )
-    print(new_user)
+    print("new User >> ", new_user)
     return new_user
