@@ -6,7 +6,8 @@ from pydantic import BaseModel
 
 
 class User(BaseModel):
-    user_id: str
+    user_index: int | None = None
+    user_id : str
     username: str
     gender: str | None = None
     active: bool = True
