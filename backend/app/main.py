@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from typing import List, Optional
 from starlette.middleware.cors import CORSMiddleware  
 from db import session 
-from model import UserTable, User 
+from model import UserTable, User
 
 app = FastAPI()
 
