@@ -22,20 +22,21 @@ async def read_fastapi_hello():
 
 @app.get("/users")
 def read_users():
-    users = session.query(UserTable).all()
+    users = session.query(UserTable).order_by(UserTable.user_idx).all()
     return users
 
-# user_id vs id 고려해봐야함
+
 @app.get("/user/{id}")
-def read_user(id: int):
+def read_user(id: str):
     user = session.query(UserTable).\
         filter(UserTable.id == id).first()
     return user
 
 
 @app.post("/user")
-async def create_user(password: str, gender: str):
+async def create_user(id: str, password: str, gender: str):
     user = UserTable()
+    user.id = id
     user.password = password
     user.gender = gender
     session.add(user)

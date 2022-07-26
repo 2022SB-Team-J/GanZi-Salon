@@ -20,8 +20,8 @@ password = "0701as"
 database = "gzsalon"
 host = "localhost"
 
-DATABASE = f"mysql+pymysql://{user_name}:{password}@localhost:3306/{database}?charset=utf8" 
-
+# DATABASE = f"mysql+pymysql://{user_name}:{password}@ganzi-salon-db:3306/{database}?charset=utf8" 
+DATABASE = f"mysql+pymysql://root:0701as@db:3306/gzsalon?charset=utf8" 
 
 ENGINE = create_engine(
     DATABASE,
