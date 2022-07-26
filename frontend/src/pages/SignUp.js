@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import {Formik} from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import "../css/signUp.scss";
+import "../css/signUp.css";
 
 const SignUp = () => {
 

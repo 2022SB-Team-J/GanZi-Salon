@@ -8,7 +8,7 @@ import Button from "../components/LoginButton";
 import Input from "../components/IdPassword";
 import { Link } from "react-router-dom";
 // SignUp 컴포넌트 scss 이용
-import "../css/signUp.scss";
+import "../css/signUp.css";
 import {useDispatch} from "react-redux";
 import {setToken} from "../redux/reducers/AuthReducer";
 

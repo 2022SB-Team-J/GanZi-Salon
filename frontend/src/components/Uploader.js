@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Button from "../components/LoginButton";
 import axios from 'axios';
-import "../css/uploader.scss";
+import "../css/uploader.css";
 
 const Uploader = () => {
 
