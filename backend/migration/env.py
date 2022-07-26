@@ -38,7 +38,13 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
+    if not config.get_main_option("sqlalchemy.url"):
+        url = config.set_main_option('sqlalchemy.url', 'postgresql://{username}:{password}@{host}:{port}/{user_db}'.format(
+            username='postgres', password='postgres', host='127.0.0.1', port='5432', db_name='user_db'
+        ))
+    else :
+        url = config.get_main_option("sqlalchemy.url")
+
     context.configure(
         url=url,
         target_metadata=target_metadata,
