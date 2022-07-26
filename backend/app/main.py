@@ -10,7 +10,6 @@ from .routers import api_join, api_login
 
 
 app = FastAPI(title='gz-salon')
-# app.include_router(register.api_router)
 app.include_router(api_login.api_router)
 app.include_router(api_join.api_router)
 
@@ -19,17 +18,6 @@ app.include_router(api_join.api_router)
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
-
-# @app.get("/", status_code=200)
-# def root() -> dict:
-#     """
-#     Root Get
-#     """
-#     return {"msg": "Hello, World!"}
-
-#
-# # https://fastapi.tiangolo.com/tutorial/security/first-steps/
-# oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 
 
