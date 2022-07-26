@@ -5,7 +5,7 @@ from fastapi.security import OAuth2PasswordBearer
 # 1 딕셔너리 형태로 예시 데이터 생성
 # from .models import User
 
-from .routers import users
+from .routers import users, api_login, api_join
 from .dependencies import get_query_token, get_token_header
 
 
