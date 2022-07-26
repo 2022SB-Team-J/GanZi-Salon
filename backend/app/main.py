@@ -37,7 +37,7 @@ def read_user(id: str):
 async def create_user(id: str, password: str, gender: str):
     user = UserTable()
     user.id = id
-    user.password = password
+    user.pswd = password
     user.gender = gender
     session.add(user)
     session.commit()

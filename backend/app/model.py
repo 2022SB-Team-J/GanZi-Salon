@@ -19,7 +19,7 @@ class UserTable(Base):
 class User(BaseModel):
     user_idx: int
     id: str
-    password: str
+    pswd: str
     gender: str
     is_active: bool
 
