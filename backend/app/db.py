@@ -16,7 +16,7 @@ from dotenv import load_dotenv
 # host = "localhost"
 
 user_name = "root"
-password = "0701as"
+password = "2532"
 database = "gzsalon"
 host = "localhost"
 
