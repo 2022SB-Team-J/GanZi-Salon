@@ -20,7 +20,7 @@ password = "0701as"
 database = "gzsalon"
 host = "localhost"
 
-DATABASE = f"mysql+pymysql://{user_name}:{password}@3306:3306/{database}?charset=utf8" 
+DATABASE = f"mysql+pymysql://{user_name}:{password}@localhost:3306/{database}?charset=utf8" 
 
 
 ENGINE = create_engine(

@@ -1,20 +1,42 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from datetime import datetime
 from pydantic import BaseModel
 from db import Base
 from db import ENGINE
 
 
 class UserTable(Base):
-    __tablename__ = 'user'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String(30), nullable=False)
-    age = Column(Integer)
-
+    __tablename__ = "user"
+    user_idx = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(String(20),unique=True, nullable=False)
+    password = Column(String(100),nullable=False)
+    gender = Column(String(1), default = 'N')
+    create_at = Column(String(30), default = datetime.now())
+    upload_at = Column(String(30), default = datetime.now())
+    is_active = Column(Boolean, default=True)
 
 class User(BaseModel):
-    id: int
-    name: str
-    age: int
+    user_idx: int
+    id: str
+    password: str
+    gender: str
+    create_at: str
+    upload_at: str
+    is_active: bool
+
+
+class ImageTable(Base):
+    __tablename__ = "images"
+    img_idx = Column(Integer, primary_key=True, autoincrement=True) 
+    user_idx = Column(String(20), ForeignKey('Users'), nullable=False)
+    img_url = Column(String(100), nullable=False)
+    create_at = Column(String(30), default = datetime.now() )
+
+class Image(BaseModel):
+    img_idx: int
+    user_idx:str
+    img_url: str
+    create_at: str
 
 
 def main():
