@@ -1,12 +1,13 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP
 from datetime import datetime
 from pydantic import BaseModel
-from db import Base
-from db import ENGINE
+from .db import Base
+from .db import ENGINE
 
 
 class UserTable(Base):
     __tablename__ = "user"
+
     user_idx = Column(Integer, primary_key=True, autoincrement=True)
     id = Column(String(20),unique=True, nullable=False)
     pswd = Column(String(20),nullable=False)

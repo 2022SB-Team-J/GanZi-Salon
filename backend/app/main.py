@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 from typing import List, Optional
 from starlette.middleware.cors import CORSMiddleware  
-from db import session 
-from model import UserTable, User 
+from .db import session
+from .model import UserTable, User
+from .routers import user_router
 
 app = FastAPI()
+app.include_router(user_router.api_router)
 
 app.add_middleware(
     CORSMiddleware,
