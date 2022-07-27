@@ -31,10 +31,9 @@ services:
       - mysql_data:/var/lib/mysql
       - ./initdb.d:/docker-entrypoint-initdb.d
     command: 
-      - --character-set-server=utf8 
+      - --character-set-server=UTF8
       - --collation-server=utf8_general_ci
     restart: always
-    #호스트 ./data에 데이터를 저장시키고, ./conf를 통하여 mysql.conf를 공유
     
 volumes : 
   mysql_data:
