@@ -10,6 +10,7 @@ class UserTable(Base):
 
     user_idx = Column(Integer, primary_key=True, autoincrement=True)
     id = Column(String(20),unique=True, nullable=False)
+    user_name = Column(String(20),unique=True, nullable=False)
     pswd = Column(String(20),nullable=False)
     gender = Column(String(1), default = 'N')
     create_at = Column(TIMESTAMP, default = datetime.now())
@@ -17,12 +18,12 @@ class UserTable(Base):
     is_active = Column(Boolean, default=True)
 
 
-class User(BaseModel):
-    user_idx: int
-    id: str
-    password: str
-    gender: str
-    is_active: bool
+# class User(BaseModel):
+#     user_idx: int
+#     id: str
+#     password: str
+#     gender: str
+#     is_active: bool
 
 
 class ImageTable(Base):

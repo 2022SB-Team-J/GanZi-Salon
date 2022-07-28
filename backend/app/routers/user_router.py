@@ -18,5 +18,5 @@ api_router = APIRouter(
 # 회원가입
 @api_router.post("/user/auth/join", response_model=schemas.NewUser)
 async def join(request : schemas.NewUser, db: Session = Depends(get_db)):
-    new_user = schemas.User.createUser(request, db)
+    new_user = schemas.createUser(request, db)
     return new_user

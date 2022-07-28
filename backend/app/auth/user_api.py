@@ -58,6 +58,6 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 # 활성화 상태 유저인지 판단
 async def get_current_active_user(current_user: User):
-    if not current_user.active:
+    if not current_user.is_active:
         raise HTTPException(status_code=400, detail="Inactive user")
     return current_user

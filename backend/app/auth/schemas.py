@@ -15,49 +15,46 @@ from .. import model
 
 # 신규 유저
 class NewUser(BaseModel):
-    user_id:str
-    username:str
-    password : str
+    id:str
+    user_name:str
+    pswd : str
     gender: str | None = None
-    def __init__(self, user_id, username, password, gender):
-        self.user_id = user_id
-        self.username = username
-        self.password = password
+    def __int__(self, id, user_name, pswd, gender):
+        self.id = id,
+        self.user_name = user_name,
+        self.pswd = pswd,
         self.gender = gender
-
 # 유저
 class User(NewUser):
-    user_index: int | None = None
-    hashed_password:str
+    user_idx: int | None = None
     create_at : datetime | None = None
     update_at : datetime | None = None
-    active: bool = True
-    # 초기화
-    def __init__(self, user_id,username, password, gender):
-        self.user_id = user_id
-        self.username = username
-        self.hashed_password = password
-        self.gender = gender
-        self.active = True
+    is_active: bool = True
+    class Config:
+        orm_mode = True
 
     # 업데이트. 업데이트 일자 추가 예정
     def updeate(self, user_id, username, password, update_at):
         pass
     # 비활성화. 업데이트 일자 추가 예정
     def inactive(self):
-        self.active=False
+        self.is_active=False
 
 # 비밀번호 암호화
-class HashPwd(BaseModel):
-    hashed_password: str
-    def __init__(self, password):
-        self.hashed_password = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+def HashPwd(password):
+    return bcrypt.hashpw(password=password.encode("utf-8"), salt=bcrypt.gensalt())
 
+
+# self._password = self.hashed_pass(password=password)
 
 #회원가입
 def createUser(request:NewUser, db:Session):
-    # hashed_password = HashPwd(request.password)
-    new_user = User( request.user_id, request.username, HashPwd(request.password).hashed_password, request.gender)
+    hashed_password = HashPwd(request.pswd)
+    new_user = User(id = request.id,
+                    user_name= request.user_name,
+                    pswd =  hashed_password,
+                    gender = request.gender,
+                    active = True)
     db.add(new_user)
     db.commit()
     db.refresh()

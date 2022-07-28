@@ -2,7 +2,8 @@ from fastapi import FastAPI
 from typing import List, Optional
 from starlette.middleware.cors import CORSMiddleware  
 from .db import session
-from .model import UserTable, User
+from .model import UserTable
+from .auth.schemas import User
 from .routers import user_router
 
 app = FastAPI()
@@ -50,6 +51,6 @@ async def update_user(users: List[User]):
     for new_user in users:
         user = session.query(UserTable).\
             filter(UserTable.id == new_user.id).first()
-        user.password = new_user.password
+        user.pswd = new_user.password
         user.gender = new_user.gender
         session.commit()
