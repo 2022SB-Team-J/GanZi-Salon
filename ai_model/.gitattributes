@@ -1,3 +1,2 @@
-*.ckpt filter=lfs diff=lfs merge=lfs -text
-expr/checkpoints/wing.ckpt filter=lfs diff=lfs merge=lfs -text
 expr/checkpoints/celeba_hq/100000_nets_ema.ckpt filter=lfs diff=lfs merge=lfs -text
+expr/checkpoints/wing.ckpt filter=lfs diff=lfs merge=lfs -text
