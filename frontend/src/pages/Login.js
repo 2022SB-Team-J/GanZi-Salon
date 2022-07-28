@@ -15,17 +15,16 @@ import {setToken} from "../redux/reducers/AuthReducer";
 const Login = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("올바른 이메일 형식이 아닙니다!")
-      .required("이메일을 입력하세요!"),
+    id: Yup.string()
+      ,
     password: Yup.string()
-      .required("패스워드를 입력하세요!")
+      
   });
   const submit = async (values) => {
-    const {email, password} = values;
+    const {id, password} = values;
     try {
       const {data} = await axios.post("/api/auth/signin", {
-        email,
+        id,
         password,
       });
       dispatch(setToken(data.jwt));
@@ -47,7 +46,7 @@ const Login = () => {
   return (
     <Formik
       initialValues={{
-        email: "",
+        id: "",
         password: "",
       }}
       validationSchema={validationSchema}
@@ -65,13 +64,14 @@ const Login = () => {
               <div className="input-forms-item">
                 
                 <Input
-                  value={values.email}
-                  name="email"
+                  value={values.id}
+                  name="id"
                   variant="outlined"
+                  placeholder="id"
                   onChange={handleChange}
                 />
                 <div className="error-message">
-                  <ErrorMessage name="email"/>
+                  <ErrorMessage name="id"/>
                 </div>
               </div>
               <div className="input-forms-item">
@@ -81,6 +81,7 @@ const Login = () => {
                   name="password"
                   variant="outlined"
                   type="password"
+                  placeholder="password"
                   onChange={handleChange}
                 />
                 <div className="error-message">

@@ -13,12 +13,12 @@ import "../css/signUp.css";
 const SignUp = () => {
 
     const validationSchema = Yup.object().shape({
-    username: Yup.string()
+    id: Yup.string()
         .min(2, "아이디는 최소 2글자 이상입니다!")
         .max(10, "아이디는 최대 10글자입니다!")
         ,
-    email: Yup.string()
-        .email("올바른 이메일 형식이 아닙니다!")
+    gender: Yup.string()
+        
         ,
 
     password: Yup.string()
@@ -30,11 +30,11 @@ const SignUp = () => {
         ,
     });
     const submit = async (values) => {
-    const {email, username, password} = values;
+    const {id, gender, password} = values;
     try {
         await axios.post("/api/auth/join", {
-        email,
-        username,
+        id,
+        gender,
         password,
         });
         toast.success(<h3>회원가입이 완료되었습니다.<br/>로그인 하세요😎</h3>, {
@@ -56,8 +56,8 @@ const SignUp = () => {
     return (
       <Formik
         initialValues={{
-        username: "",
-        email: "",
+        id: "",
+        gender: "",
         password: "",
         password2: "",
         }}
@@ -78,10 +78,10 @@ const SignUp = () => {
                 <div className="input-forms-item">
                 <Input
                     value={values.username}
-                    name="username"
+                    name="id"
                     variant="outlined"
                     onChange={handleChange}
-                    placeholder="name"
+                    placeholder="id"
                 />
                 <div className="error-message">
                     {errors.username}
@@ -89,15 +89,13 @@ const SignUp = () => {
                 
                 <div className="input-forms-item">
                 <Input
-                    value={values.email}
-                    name="email"
+                    value={values.gender}
+                    name="gender"
                     variant="outlined"
-                    placeholder="email"
+                    placeholder="gender"
                     onChange={handleChange}
                 />
-                <div>
-                    {errors.email}
-                </div>
+                
                 </div>
                 </div>
 
