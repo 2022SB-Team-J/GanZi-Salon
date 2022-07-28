@@ -7,7 +7,6 @@ import * as Yup from "yup";
 import Button from "../components/LoginButton";
 import Input from "../components/IdPassword";
 import { Link } from "react-router-dom";
-// SignUp 컴포넌트 scss 이용
 import "../css/signUp.css";
 import {useDispatch} from "react-redux";
 import {setToken} from "../redux/reducers/AuthReducer";
@@ -23,7 +22,7 @@ const Login = () => {
   const submit = async (values) => {
     const {id, password} = values;
     try {
-      const {data} = await axios.post("/api/auth/signin", {
+      const {data} = await axios.post("/api/auth/login", {
         id,
         password,
       });
