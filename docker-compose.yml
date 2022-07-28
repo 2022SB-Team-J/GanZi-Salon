@@ -20,8 +20,9 @@ services:
     - .:/user/src/gz-salon
 
 
-  db:    # 서비스명 
+  db:
     image: mysql:8.0.29
+    platform: Linux/AMD64
     ports:  
       - "3306:3306"
     environment:

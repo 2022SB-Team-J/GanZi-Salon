@@ -1,8 +1,7 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP
 from datetime import datetime
 from pydantic import BaseModel
-from .db import Base
-from .db import ENGINE
+from db import Base, ENGINE
 
 
 class UserTable(Base):

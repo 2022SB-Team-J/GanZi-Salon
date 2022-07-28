@@ -1,8 +1,9 @@
 import bcrypt
 from sqlalchemy.orm import Session
 
-from . import schemas
-from .. import model
+import model
+import schemas
+
 
 def get_user(db: Session, user_id: int):
     return db.query(model.User).filter(model.User.id == user_id).first()
@@ -16,10 +17,10 @@ def HashPwd(password):
 def create_user(db: Session, new_user: schemas.NewUser):
     hashed_password = HashPwd(new_user.pswd)
     db_user = schemas.NewUser(id = new_user.id,
-                         user_name= new_user.user_name,
-                         pswd =  hashed_password,
-                         gender = new_user.gender,
-                         active = True)
+                              user_name= new_user.user_name,
+                              pswd =  hashed_password,
+                              gender = new_user.gender,
+                              active = True)
     db.add(db_user)
     db.commit()
     db.refresh(db_user)

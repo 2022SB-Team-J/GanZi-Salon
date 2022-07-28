@@ -1,12 +1,11 @@
-import bcrypt
-from fastapi import APIRouter, status, Depends, Request
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from fastapi import HTTPException
 
 # from api import user
-from ..auth import crud, schemas
-from ..db import get_db
+import crud, schemas
+from db import get_db
+# import db
 
 # import auth
 

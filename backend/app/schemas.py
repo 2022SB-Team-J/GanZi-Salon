@@ -9,7 +9,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 
-from .. import model
+import model
 
 
 

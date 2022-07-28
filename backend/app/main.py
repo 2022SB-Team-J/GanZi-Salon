@@ -1,10 +1,10 @@
 from fastapi import FastAPI
-from typing import List, Optional
+from typing import List
 from starlette.middleware.cors import CORSMiddleware  
-from .db import session
-from .model import UserTable
-from .auth.schemas import User
-from .routers import user_router
+from db import session
+from model import UserTable
+from schemas import User
+import user_router
 
 app = FastAPI()
 app.include_router(user_router.api_router)
