@@ -41,24 +41,24 @@ class User(NewUser):
         self.is_active=False
 
 # 비밀번호 암호화
-def HashPwd(password):
-    return bcrypt.hashpw(password=password.encode("utf-8"), salt=bcrypt.gensalt())
+# def HashPwd(password):
+#     return bcrypt.hashpw(password=password.encode("utf-8"), salt=bcrypt.gensalt())
 
 
 # self._password = self.hashed_pass(password=password)
 
 #회원가입
-def createUser(request:NewUser, db:Session):
-    hashed_password = HashPwd(request.pswd)
-    new_user = User(id = request.id,
-                    user_name= request.user_name,
-                    pswd =  hashed_password,
-                    gender = request.gender,
-                    active = True)
-    db.add(new_user)
-    db.commit()
-    db.refresh()
-    return new_user
+# def createUser(request:NewUser, db:Session):
+#     hashed_password = HashPwd(request.pswd)
+#     new_user = User(id = request.id,
+#                     user_name= request.user_name,
+#                     pswd =  hashed_password,
+#                     gender = request.gender,
+#                     active = True)
+#     db.add(new_user)
+#     db.commit()
+#     db.refresh()
+#     return new_user
 
 # 회원 조회
 def showUser(id: int, db: Session):
