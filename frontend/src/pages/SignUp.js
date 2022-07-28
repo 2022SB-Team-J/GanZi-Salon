@@ -1,6 +1,6 @@
 import React  from "react";
 // import styled from "styled-components";
-import Button from "../components/SingupButton";
+import Button from "../components/SignupButton";
 import Input from "../components/IdPassword";
 import axios from "axios";
 import {toast, ToastContainer} from "react-toastify";

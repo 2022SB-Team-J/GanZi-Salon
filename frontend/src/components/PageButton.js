@@ -39,6 +39,26 @@ import styled from "styled-components";
     display: inline-block;
     width: 250px;
     `}
+    ${(props) =>
+      props.female &&
+      `
+      
+      color: #fff;
+      background: #FFC0CB;
+      margin-left: 35px;    
+      display: inline-block;
+      width: 250px;
+      `}
+      ${(props) =>
+        props.male &&
+        `
+        
+        color: #fff;
+        background: #FFC0CB;
+        margin-left: 35px;    
+        display: inline-block;
+        width: 250px;
+        `}
     `;
 
 export default function Button({ children, ...props }) {

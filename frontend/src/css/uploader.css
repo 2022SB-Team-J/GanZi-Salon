@@ -6,6 +6,10 @@
 }
 .uploader-wrapper .img-wrapper {
     margin: 15px 0px 0px 200px;
+    height: 300px;
+    padding-bottom: 70px;
+
+
 }
 .uploader-wrapper .img-wrapper img {
     width: 300px;
