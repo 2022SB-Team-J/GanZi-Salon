@@ -152,3 +152,9 @@ body {
   font-family: "font";
   src: url(./font/font.ttf);
 }
+.guideImg {
+  display: block;
+  margin: 0px auto;
+  width : 250px;
+  height : 250px;
+}
