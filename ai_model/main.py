@@ -36,48 +36,81 @@ def main(args):
 
     solver = Solver(args)
 
-    if args.mode == 'train':
-        assert len(subdirs(args.train_img_dir)) == args.num_domains
-        assert len(subdirs(args.val_img_dir)) == args.num_domains
-        loaders = Munch(src=get_train_loader(root=args.train_img_dir,
-                                             which='source',
-                                             img_size=args.img_size,
-                                             batch_size=args.batch_size,
-                                             prob=args.randcrop_prob,
-                                             num_workers=args.num_workers),
-                        ref=get_train_loader(root=args.train_img_dir,
-                                             which='reference',
-                                             img_size=args.img_size,
-                                             batch_size=args.batch_size,
-                                             prob=args.randcrop_prob,
-                                             num_workers=args.num_workers),
-                        val=get_test_loader(root=args.val_img_dir,
-                                            img_size=args.img_size,
-                                            batch_size=args.val_batch_size,
-                                            shuffle=True,
-                                            num_workers=args.num_workers))
-        solver.train(loaders)
-    elif args.mode == 'sample':
-        assert len(subdirs(args.src_dir)) == args.num_domains
-        assert len(subdirs(args.ref_dir)) == args.num_domains
-        loaders = Munch(src=get_test_loader(root=args.src_dir,
+    if args.mode == 'female':
+        assert len(subdirs(args.src_dir_fe)) == args.num_domains
+        assert len(subdirs(args.ref_dir_fe)) == args.num_domains
+        loaders = Munch(src=get_test_loader(root=args.src_dir_fe,
                                             img_size=args.img_size,
                                             batch_size=args.val_batch_size,
                                             shuffle=False,
                                             num_workers=args.num_workers),
-                        ref=get_test_loader(root=args.ref_dir,
+                        ref=get_test_loader(root=args.ref_dir_fe,
                                             img_size=args.img_size,
                                             batch_size=args.val_batch_size,
                                             shuffle=False,
                                             num_workers=args.num_workers))
-        solver.sample(loaders)
-    elif args.mode == 'eval':
-        solver.evaluate()
-    elif args.mode == 'align':
-        from core.wing import align_faces
-        align_faces(args, args.inp_dir, args.out_dir)
-    else:
-        raise NotImplementedError
+        solver.female(loaders)
+
+    elif args.mode == 'male':
+        assert len(subdirs(args.src_dir_ma)) == args.num_domains
+        assert len(subdirs(args.ref_dir_ma)) == args.num_domains
+        loaders = Munch(src=get_test_loader(root=args.src_dir_ma,
+                                            img_size=args.img_size,
+                                            batch_size=args.val_batch_size,
+                                            shuffle=False,
+                                            num_workers=args.num_workers),
+                        ref=get_test_loader(root=args.ref_dir_ma,
+                                            img_size=args.img_size,
+                                            batch_size=args.val_batch_size,
+                                            shuffle=False,
+                                            num_workers=args.num_workers))
+        solver.male(loaders)
+
+
+    # if args.mode == 'train':
+    #     assert len(subdirs(args.train_img_dir)) == args.num_domains
+    #     assert len(subdirs(args.val_img_dir)) == args.num_domains
+    #     loaders = Munch(src=get_train_loader(root=args.train_img_dir,
+    #                                          which='source',
+    #                                          img_size=args.img_size,
+    #                                          batch_size=args.batch_size,
+    #                                          prob=args.randcrop_prob,
+    #                                          num_workers=args.num_workers),
+    #                     ref=get_train_loader(root=args.train_img_dir,
+    #                                          which='reference',
+    #                                          img_size=args.img_size,
+    #                                          batch_size=args.batch_size,
+    #                                          prob=args.randcrop_prob,
+    #                                          num_workers=args.num_workers),
+    #                     val=get_test_loader(root=args.val_img_dir,
+    #                                         img_size=args.img_size,
+    #                                         batch_size=args.val_batch_size,
+    #                                         shuffle=True,
+    #                                         num_workers=args.num_workers))
+    #     solver.train(loaders)
+    # elif args.mode == 'sample':
+    #     assert len(subdirs(args.src_dir)) == args.num_domains
+    #     assert len(subdirs(args.ref_dir)) == args.num_domains
+    #     loaders = Munch(src=get_test_loader(root=args.src_dir,
+    #                                         img_size=args.img_size,
+    #                                         batch_size=args.val_batch_size,
+    #                                         shuffle=False,
+    #                                         num_workers=args.num_workers),
+    #                     ref=get_test_loader(root=args.ref_dir,
+    #                                         img_size=args.img_size,
+    #                                         batch_size=args.val_batch_size,
+    #                                         shuffle=False,
+    #                                         num_workers=args.num_workers))
+    #     solver.sample(loaders)
+    # elif args.mode == 'eval':
+    #     solver.evaluate()
+    # elif args.mode == 'align':
+    #     from core.wing import align_faces
+    #     align_faces(args, args.inp_dir, args.out_dir)
+    # else:
+    #     raise NotImplementedError
+
+
 
 
 if __name__ == '__main__':
@@ -86,7 +119,7 @@ if __name__ == '__main__':
     # model arguments
     parser.add_argument('--img_size', type=int, default=256,
                         help='Image resolution')
-    parser.add_argument('--num_domains', type=int, default=2,
+    parser.add_argument('--num_domains', type=int, default=1,
                         help='Number of domains')
     parser.add_argument('--latent_dim', type=int, default=16,
                         help='Latent vector dimension')
@@ -133,14 +166,17 @@ if __name__ == '__main__':
     parser.add_argument('--num_outs_per_domain', type=int, default=10,
                         help='Number of generated images per domain during sampling')
 
+
+                        ## -------- customize -------- ##
     # misc
     parser.add_argument('--mode', type=str, required=True,
-                        choices=['train', 'sample', 'eval', 'align'],
+                        choices=['train', 'female', 'male', 'eval', 'align'],
                         help='This argument is used in solver')
     parser.add_argument('--num_workers', type=int, default=4,
                         help='Number of workers used in DataLoader')
     parser.add_argument('--seed', type=int, default=777,
                         help='Seed for random number generator')
+
 
     # directory for training
     parser.add_argument('--train_img_dir', type=str, default='data/celeba_hq/train',
@@ -159,14 +195,25 @@ if __name__ == '__main__':
     # directory for testing
     parser.add_argument('--result_dir', type=str, default='expr/results',
                         help='Directory for saving generated images and videos')
-    parser.add_argument('--src_dir', type=str, default='assets/representative/celeba_hq/src',
+
+
+                        ## ---------- customize ----------- ##
+    parser.add_argument('--src_dir_fe', type=str, default='assets/celeba_hq/src/female',
                         help='Directory containing input source images')
-    parser.add_argument('--ref_dir', type=str, default='assets/representative/celeba_hq/ref',
+    parser.add_argument('--src_dir_ma', type=str, default='assets/celeba_hq/src/male',
+                        help='Directory containing input source images')        
+
+    parser.add_argument('--ref_dir_fe', type=str, default='assets/celeba_hq/ref/female',
                         help='Directory containing input reference images')
+    parser.add_argument('--ref_dir_ma', type=str, default='assets/celeba_hq/ref/male',
+                        help='Directory containing input reference images')
+
     parser.add_argument('--inp_dir', type=str, default='assets/representative/custom/female',
                         help='input directory when aligning faces')
     parser.add_argument('--out_dir', type=str, default='assets/representative/celeba_hq/src/female',
                         help='output directory when aligning faces')
+
+
 
     # face alignment
     parser.add_argument('--wing_path', type=str, default='expr/checkpoints/wing.ckpt')

@@ -170,8 +170,10 @@ class Solver(nn.Module):
                 calculate_metrics(nets_ema, args, i+1, mode='latent')
                 calculate_metrics(nets_ema, args, i+1, mode='reference')
 
+
+
     @torch.no_grad()
-    def sample(self, loaders):
+    def female(self, loaders):
         args = self.args
         nets_ema = self.nets_ema
         os.makedirs(args.result_dir, exist_ok=True)
@@ -188,6 +190,45 @@ class Solver(nn.Module):
 
         # 아마도 여기가 output 사진 코드일듯. utils.py에서도 고쳐줘야함
         utils.translate_using_reference(nets_ema, args, src.x, ref.x, ref.y, fname)
+
+    @torch.no_grad()
+    def male(self, loaders):
+        args = self.args
+        nets_ema = self.nets_ema
+        os.makedirs(args.result_dir, exist_ok=True)
+        self._load_checkpoint(args.resume_iter)
+
+        src = next(InputFetcher(loaders.src, None, args.latent_dim, 'test'))
+        ref = next(InputFetcher(loaders.ref, None, args.latent_dim, 'test'))
+
+        if os.listdir (args.result_dir): # 빈 디렉터리가 아니라면
+            fname = ospj(args.result_dir, 'reference2.jpg')
+        else:   # 빈 디렉터리라면
+            fname = ospj(args.result_dir, 'reference3.jpg')
+        print('Working on {}...'.format(fname))
+
+        # 아마도 여기가 output 사진 코드일듯. utils.py에서도 고쳐줘야함
+        utils.translate_using_reference(nets_ema, args, src.x, ref.x, ref.y, fname)
+
+
+    # @torch.no_grad()
+    # def sample(self, loaders):
+    #     args = self.args
+    #     nets_ema = self.nets_ema
+    #     os.makedirs(args.result_dir, exist_ok=True)
+    #     self._load_checkpoint(args.resume_iter)
+
+    #     src = next(InputFetcher(loaders.src, None, args.latent_dim, 'test'))
+    #     ref = next(InputFetcher(loaders.ref, None, args.latent_dim, 'test'))
+
+    #     if os.listdir (args.result_dir): # 빈 디렉터리가 아니라면
+    #         fname = ospj(args.result_dir, 'reference2.jpg')
+    #     else:   # 빈 디렉터리라면
+    #         fname = ospj(args.result_dir, 'reference3.jpg')
+    #     print('Working on {}...'.format(fname))
+
+    #     # 아마도 여기가 output 사진 코드일듯. utils.py에서도 고쳐줘야함
+    #     utils.translate_using_reference(nets_ema, args, src.x, ref.x, ref.y, fname)
 
         # if os.listdir (args.result_dir):
         #     fname = ospj(args.result_dir, 'video_ref.mp4')
