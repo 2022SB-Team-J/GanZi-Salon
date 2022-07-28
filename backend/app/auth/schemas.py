@@ -1,7 +1,7 @@
 # 타입 힌트를 지원하기 위한 typing 모듈
 # typing ?  https://www.daleseo.com/python-typing/
 from datetime import datetime
-from typing import Sequence
+from typing import Optional
 from fastapi import HTTPException
 
 import bcrypt
@@ -9,26 +9,35 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from starlette import status
 
-from backend.app import model
+from .. import model
 
 
+
+# 신규 유저
+class NewUser(BaseModel):
+    user_id:str
+    username:str
+    password : str
+    gender: str | None = None
+    def __init__(self, user_id, username, password, gender):
+        self.user_id = user_id
+        self.username = username
+        self.password = password
+        self.gender = gender
 
 # 유저
-class User(BaseModel):
+class User(NewUser):
     user_index: int | None = None
-    user_id : str
-    username: str
-    gender: str | None = None
-    active: bool = True
-    hashed_password: str
+    hashed_password:str
     create_at : datetime | None = None
     update_at : datetime | None = None
+    active: bool = True
     # 초기화
     def __init__(self, user_id,username, password, gender):
-        self.user_id=user_id
-        self.username=username
-        self.hashed_password=password
-        self.gender=gender
+        self.user_id = user_id
+        self.username = username
+        self.hashed_password = password
+        self.gender = gender
         self.active = True
 
     # 업데이트. 업데이트 일자 추가 예정
@@ -46,13 +55,13 @@ class HashPwd(BaseModel):
 
 
 #회원가입
-def createUser(request:User, db:Session):
-    hashed_password = HashPwd(request.password)
-    user = User( request.user_id, request.username, hashed_password, request.gender)
-    db.add(user)
+def createUser(request:NewUser, db:Session):
+    # hashed_password = HashPwd(request.password)
+    new_user = User( request.user_id, request.username, HashPwd(request.password).hashed_password, request.gender)
+    db.add(new_user)
     db.commit()
     db.refresh()
-    return user
+    return new_user
 
 # 회원 조회
 def showUser(id: int, db: Session):

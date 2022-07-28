@@ -15,10 +15,10 @@ from dotenv import load_dotenv
 # database_name = os.environ["DB_DATABASE"]
 # host = "localhost"
 
-user_name = "root"
-password = "0701as"
-database = "gzsalon"
-host = "localhost"
+# user_name = "root"
+# password = "0701as"
+# database = "gzsalon"
+# host = "localhost"
 
 # DATABASE = f"mysql+pymysql://{user_name}:{password}@ganzi-salon-db:3306/{database}?charset=utf8" 
 DATABASE = f"mysql+pymysql://root:0701as@db:3306/gzsalon?charset=utf8" 
@@ -41,3 +41,10 @@ session = scoped_session(
 
 Base = declarative_base()
 Base.query = session.query_property()
+
+def get_db():
+    db = session()
+    try:
+        yield db
+    finally:
+        db.close()
