@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Female01 from "../images/Female01.jpeg";
-import Female02 from "../images/Female02.jpeg";
-import Female03 from "../images/Female03.jpeg";
-import Female04 from "../images/Female04.jpeg";
-import Female05 from "../images/Female05.png";
-import Female06 from "../images/Female06.jpeg";
-import Female07 from "../images/Female07.jpeg";
-import Female08 from "../images/Female08.jpeg";
+import Female01 from "../images/model/Female01.jpeg";
+import Female02 from "../images/model/Female02.jpeg";
+import Female03 from "../images/model/Female03.jpeg";
+import Female04 from "../images/model/Female04.jpeg";
+import Female05 from "../images/model/Female05.png";
+import Female06 from "../images/model/Female06.jpeg";
+import Female07 from "../images/model/Female07.jpeg";
+import Female08 from "../images/model/Female08.jpeg";
 
 
 export default class SwipeToSlide extends Component {
