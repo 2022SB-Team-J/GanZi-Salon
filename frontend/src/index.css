@@ -36,6 +36,18 @@
     font-family: 'font';
     
   }
+  .title-text-black-2 {
+    
+    color:black;
+    width: 100%;
+    text-align:center;
+    font-size: 100px;
+    font-family:'ariblk';
+    padding-top: 50px;
+    font-family: 'font';
+    margin-bottom: 30px;
+
+  }
 
   .background-image-black
 {   
@@ -155,6 +167,6 @@ body {
 .guideImg {
   display: block;
   margin: 0px auto;
-  width : 250px;
-  height : 250px;
+  width : 180px;
+  height : 180px;
 }

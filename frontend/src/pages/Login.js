@@ -95,6 +95,11 @@ const Login = () => {
               >
                 로그인
               </Button>
+              <Link to="/signup">
+              <Button signup>
+                회원가입
+              </Button>
+              </Link>
             </div>
           </form>
         </div>

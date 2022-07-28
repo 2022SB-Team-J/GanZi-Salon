@@ -22,9 +22,10 @@ const StyledButton = styled.button`
   ${(props) =>
     props.signup &&
     `
+    position: absolute; 
     color: #fff;
     background: #D8BFD8;
-    margin-left: 35px;
+    
     `}
   ${(props) =>
     props.signin &&
@@ -33,8 +34,20 @@ const StyledButton = styled.button`
     background: #BA55D3;
     position: absolute; 
     left:50%;
-    margin-left:-57px
+    margin-left:100px
     `}
+    ${(props) =>
+      props.signup2 &&
+      `
+      color: #fff;
+      background: #D8BFD8;
+      position: absolute; 
+      left:50%;
+      margin-left:-57px
+      
+      
+      
+      `}
 `;
 
 export default function Button({ children, ...props }) {

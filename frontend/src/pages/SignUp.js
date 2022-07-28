@@ -129,7 +129,7 @@ const SignUp = () => {
                 </div>
                 </div>
 
-                <Button signin
+                <Button signup2
                 variant="contained"
                 fullWidth
                 type="submit"

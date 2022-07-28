@@ -8,10 +8,11 @@ function ChooseStyle() {
 return (
     <div className="background-image-main">
 
-    <div className = "title-text-black">Choose hair style or upload</div>
+    <div className = "title-text-black-2">Choose hair style or upload</div>
 
     <Slide />
-    
+
+    <Slide />
     <div style= {{textAlign : 'center'}}>
     <Link to="/History" style={{ textDecoration: "none" }}>
         <Button blueButton >Loading history</Button>
