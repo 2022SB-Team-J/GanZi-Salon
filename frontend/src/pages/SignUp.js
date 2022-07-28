@@ -1,6 +1,6 @@
 import React  from "react";
 // import styled from "styled-components";
-import Button from "../components/LoginButton";
+import Button from "../components/SingupButton";
 import Input from "../components/IdPassword";
 import axios from "axios";
 import {toast, ToastContainer} from "react-toastify";
@@ -128,14 +128,23 @@ const SignUp = () => {
                     {errors.password2}
                 </div>
                 </div>
+                    
 
-                <Button signup2
-                variant="contained"
+    
+                <Button signin
+                margin-left= '150px'
+                variant='contained'
                 fullWidth
-                type="submit"
+                type='submit'
+                width='fit-content'
+                margin='auto'
+                
+                
                 >
                 회원가입
                 </Button>
+
+                
             </div>
             </form>
         </div>
