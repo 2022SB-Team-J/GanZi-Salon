@@ -5,6 +5,7 @@ COPY ./ /backend
 WORKDIR /backend
 
 RUN pip install -r requirements.txt
+RUN pip install pydantic
 
 WORKDIR /backend/app
 

@@ -1,4 +1,3 @@
-
 import React from "react";
 import styled from "styled-components";
 
@@ -7,12 +6,13 @@ import styled from "styled-components";
     font-size: 25px;
     font-weight: 700;
     line-height: 49px;
+    width: 160px;
+    height: 80px;
+    margin-top: 37px;
+    margin-left: 150px;
+    margin: 100px auto;
     display: block;
-    width: 360px;
-    height: 100px;
-    margin: 75px auto;
     cursor: pointer;
-    text-align: center;
     color: black;
     border: none;
     border-radius: 50px;
@@ -26,7 +26,10 @@ import styled from "styled-components";
     background: #B0E0E6;
     display: inline-block;
     width: 250px;
+    margin-left: 0px;
+    margin: 40px auto;
     `
+    
     }
 
     ${(props) =>

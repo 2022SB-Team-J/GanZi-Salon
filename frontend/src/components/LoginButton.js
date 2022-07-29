@@ -17,15 +17,37 @@ const StyledButton = styled.button`
   color: #fff;
   border: none;
   border-radius: 25px;
-  background-color: #D8BFD8;
+  background-color: #BA55D3;
   
   ${(props) =>
     props.signup &&
     `
+    position: absolute; 
+    color: #fff;
+    background: #D8BFD8;
+    
+    `}
+  ${(props) =>
+    props.signin &&
+    `
     color: #fff;
     background: #BA55D3;
-    margin-left: 35px;
+    position: absolute; 
+    left:50%;
+    margin-left:100px
     `}
+    ${(props) =>
+      props.signup2 &&
+      `
+      color: #fff;
+      background: #D8BFD8;
+      position: absolute; 
+      left:50%;
+      margin-left:-57px
+      
+      
+      
+      `}
 `;
 
 export default function Button({ children, ...props }) {
