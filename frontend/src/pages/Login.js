@@ -11,24 +11,12 @@ import "../css/signUp.css";
 import {useDispatch} from "react-redux";
 import {setToken} from "../redux/reducers/AuthReducer";
 
-<<<<<<< HEAD
-const Container = styled.div`
-  padding: 20px;
-  text-align: center;
-`;
-
-function Login() {
-return (
-    
-    <Container className="background-image-black" >
-=======
 const Login = () => {
   const dispatch = useDispatch();
   const validationSchema = Yup.object().shape({
     id: Yup.string()
       ,
     password: Yup.string()
->>>>>>> feature/join
       
   });
   const submit = async (values) => {
