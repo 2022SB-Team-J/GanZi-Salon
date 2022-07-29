@@ -8,3 +8,12 @@ CREATE TABLE user (
     is_active boolean default 0,
     PRIMARY KEY (user_idx)
 );
+
+CREATE TABLE image (
+    img_idx INT NOT NULL AUTO_INCREMENT,
+    user_idx VARCHAR(20) NOT NULL unique,
+    img_url VARCHAR(200) NOT NULL,
+    create_at datetime default now(),
+    PRIMARY KEY (img_idx),
+    FOREIGN KEY (user_idx) REFERENCES `user` (`user_idx`)
+);
