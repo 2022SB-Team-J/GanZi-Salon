@@ -67,9 +67,10 @@ const [image, setImage] = useState({
         Upload
       </Button>
 
+
 {/* 최종 결과 전송하기 버튼 */}
-      <Link to="/AppliedStyleFinal" style={{ textDecoration: "none" }}>
-      <Button final>결과 확인하기</Button>
+      <Link to="/AppliedStyleFinal" style={{ textDecoration: "none", marginLeft:'50px' }}>
+      <Button final>Result</Button>
       </Link>
 
 
@@ -99,6 +100,9 @@ const [image, setImage] = useState({
         <Button onClick={deleteImage}>
           Delete
         </Button>
+
+
+        
         <Button onClick={sendImageToServer}>
           Upload
         </Button>
