@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../components/GenderButton";
 import FemaleSlide from "../components/FemaleSlider";
 import MaleSlide from "../components/MaleSlider";
+import ModelUploader from "../components/ModelUploader";
+import Button from "../components/GenderButton";
 
 function ChooseStyle() {
     
@@ -16,9 +16,9 @@ return (
     <MaleSlide />
     <div style= {{textAlign : 'center'}}>
     {/*임시로 스타일/색깔 적용 완료 페이지로 이동시켰습니다.*/}
-    <Link to="/AppliedStyleFinal" style={{ textDecoration: "none" }}>
-        <Button  >Image upload</Button>
-    </Link>
+    
+        <ModelUploader/>
+    
     </div>
     
     </div>

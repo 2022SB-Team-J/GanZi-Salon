@@ -1,4 +1,3 @@
-
 import React from "react";
 import styled from "styled-components";
 
@@ -55,6 +54,25 @@ import styled from "styled-components";
 
 
     `}
+    ${(props) =>
+      props.final &&
+      `
+      font-size: 25px;
+    font-weight: 700;
+    line-height: 49px;
+    width: 250px;
+    height: 80px;
+    margin-top: 37px;
+    margin-left: 150px;
+    margin: 25px auto;
+    display: block;
+    cursor: pointer;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    background-color: #E6E6FA;
+      
+      `}
     `;
 
 export default function Button({ children, ...props }) {

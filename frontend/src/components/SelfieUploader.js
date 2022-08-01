@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Button from "../components/LoginButton";
+import Button from "./LoginButton";
 import axios from 'axios';
 import "../css/uploader.css";
 
-const Uploader = () => {
+const SelfieUploader = () => {
 
   const [image, setImage] = useState({
     image_file: "",
@@ -42,7 +42,7 @@ const Uploader = () => {
       const formData = new FormData()
       formData.append('file', image.image_file);
       await axios.post('/api/image/upload', formData);
-      alert("서버에 등록이 완료되었습니다. Change Style 버튼을 눌러주세요!");
+      alert("Change Style 버튼을 눌러주세요!");
       setImage({
         image_file: "",
         preview_URL: "img/default_image.png",
@@ -69,13 +69,13 @@ const Uploader = () => {
       </div>
 
       <div className="upload-button">
-        <Button type="primary" variant="contained" onClick={() => inputRef.click()}>
+        <Button onClick={() => inputRef.click()}>
           Preview
         </Button>
-        <Button color="error" variant="contained" onClick={deleteImage}>
+        <Button  onClick={deleteImage}>
           Delete
         </Button>
-        <Button color="success" variant="contained" onClick={sendImageToServer}>
+        <Button  onClick={sendImageToServer}>
           Upload
         </Button>
       </div>
@@ -83,4 +83,4 @@ const Uploader = () => {
   );
 }
 
-export default Uploader;
+export default SelfieUploader;
