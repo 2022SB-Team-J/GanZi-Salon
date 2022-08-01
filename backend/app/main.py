@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from typing import List, Optional
 from starlette.middleware.cors import CORSMiddleware  
 from db import session 
-from model import UserTable, User 
+from model import UserTable, User, ImageTable, Image
 from typing import Union, Any
 from fastapi import FastAPI, APIRouter, Depends, HTTPException
 # from fastapi.security import OAuth2PasswordBearer
@@ -33,20 +33,26 @@ async def read_fastapi_hello():
     print("hellllo")
     return {"Hello" : "fastapii"}
 
-# DB에 있는 모든 유저 read
+# image테이블에 있는 모든 data read
+@app.get("/api/images")
+def read_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
+# user테이블에 있는 모든 유저 read
 @app.get("/api/users")
 def read_users():
     users = session.query(UserTable).order_by(UserTable.user_index).all()
     return users
 
-# DB에 있는 유저 검색 <- user id로 검색
+# user테이블에 있는 유저 검색 <- user id로 검색
 @app.get("/api/user/{id}")
 def read_user(id: str):
     user = session.query(UserTable).\
         filter(UserTable.id == id).first()
     return user
 
-# DB에 유저 추가
+# user테이블에 유저 추가
 @app.post("/api/user")
 async def create_user(id: str, password: str, name:str, gender: str):
     user = UserTable()

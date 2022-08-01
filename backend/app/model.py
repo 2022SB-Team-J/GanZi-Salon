@@ -27,17 +27,17 @@ class User(BaseModel):
 
 
 class ImageTable(Base):
-    __tablename__ = "images"
-    img_index = Column(Integer, primary_key=True, autoincrement=True) 
+    __tablename__ = "image"
+    image_index = Column(Integer, primary_key=True, autoincrement=True) 
     user_index = Column(Integer, ForeignKey('user.user_index'), nullable=False)
-    img_url = Column(String(100), nullable=False)
+    image_url = Column(String(100), nullable=False)
     create_at = Column(TIMESTAMP, default = datetime.now() )
 
 
 class Image(BaseModel):
-    img_index: int
+    image_index: int
     user_index: int 
-    img_url: str
+    image_url: str
     create_at: str
 
 
