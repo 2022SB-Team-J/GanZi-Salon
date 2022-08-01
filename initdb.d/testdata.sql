@@ -1,4 +1,3 @@
-INSERT INTO user (id, pswd, gender) VALUES ("aa", 15, 'F');
-INSERT INTO user (id, pswd, gender) VALUES ("bb", 33, 'M');
-INSERT INTO user (id, pswd, gender) VALUES ("길연", 22, 'F');
-INSERT INTO user (id, pswd, gender) VALUES ("우현", 20, 'M');
+INSERT INTO user (id, user_name, user_password, gender) VALUES ("idid", "namename" , "pasww", "F");
+INSERT INTO user (id, user_name, user_password, gender) VALUES ("id22", "namee" , "passa2222", "M");
+INSERT INTO user (id, user_name, user_password, gender) VALUES ("id333", "gilyeon" , "pasw133w", "F");

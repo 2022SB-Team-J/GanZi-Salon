@@ -33,24 +33,26 @@ async def read_fastapi_hello():
     print("hellllo")
     return {"Hello" : "fastapii"}
 
-@app.get("/users")
+# DB에 있는 모든 유저 read
+@app.get("/api/users")
 def read_users():
     users = session.query(UserTable).order_by(UserTable.user_index).all()
     return users
 
-
-@app.get("/user/{id}")
+# DB에 있는 유저 검색 <- user id로 검색
+@app.get("/api/user/{id}")
 def read_user(id: str):
     user = session.query(UserTable).\
         filter(UserTable.id == id).first()
     return user
 
-
-@app.post("/user")
-async def create_user(id: str, password: str, gender: str):
+# DB에 유저 추가
+@app.post("/api/user")
+async def create_user(id: str, password: str, name:str, gender: str):
     user = UserTable()
     user.id = id
     user.user_password = password
+    user.user_name = name
     user.gender = gender
     session.add(user)
     session.commit()
@@ -62,5 +64,6 @@ async def update_user(users: List[User]):
         user = session.query(UserTable).\
             filter(UserTable.id == new_user.id).first()
         user.user_password = new_user.password
+        user.name = new_user.name
         user.gender = new_user.gender
         session.commit()
