@@ -93,11 +93,11 @@ const Login = () => {
                 fullWidth
                 type="submit"
               >
-                로그인
+                Login
               </Button>
               <Link to="/signup">
               <Button signup>
-                회원가입
+                Sign Up
               </Button>
               </Link>
             </div>
