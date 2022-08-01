@@ -7,34 +7,36 @@ from db import ENGINE
 
 class UserTable(Base):
     __tablename__ = "user"
-    user_idx = Column(Integer, primary_key=True, autoincrement=True)
+    user_index = Column(Integer, primary_key=True, autoincrement=True)
     id = Column(String(20),unique=True, nullable=False)
-    pswd = Column(String(20),nullable=False)
+    user_name = Column(String(20), nullable=False)
+    user_password = Column(String(20),nullable=False)
     gender = Column(String(1), default = 'N')
+    is_active = Column(Boolean, default=True)
     create_at = Column(TIMESTAMP, default = datetime.now())
     upload_at = Column(TIMESTAMP, default = datetime.now())
-    is_active = Column(Boolean, default=True)
 
 
 class User(BaseModel):
-    user_idx: int
+    user_index: int
     id: str
-    pswd: str
+    user_name: str
+    user_password: str
     gender: str
     is_active: bool
 
 
 class ImageTable(Base):
     __tablename__ = "images"
-    img_idx = Column(Integer, primary_key=True, autoincrement=True) 
-    user_idx = Column(String(20), ForeignKey('Users'), nullable=False)
+    img_index = Column(Integer, primary_key=True, autoincrement=True) 
+    user_index = Column(Integer, ForeignKey('user.user_index'), nullable=False)
     img_url = Column(String(100), nullable=False)
     create_at = Column(TIMESTAMP, default = datetime.now() )
 
 
 class Image(BaseModel):
-    img_idx: int
-    user_idx:str
+    img_index: int
+    user_index: int 
     img_url: str
     create_at: str
 

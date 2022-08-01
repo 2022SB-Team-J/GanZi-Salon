@@ -35,7 +35,7 @@ async def read_fastapi_hello():
 
 @app.get("/users")
 def read_users():
-    users = session.query(UserTable).order_by(UserTable.user_idx).all()
+    users = session.query(UserTable).order_by(UserTable.user_index).all()
     return users
 
 
@@ -50,7 +50,7 @@ def read_user(id: str):
 async def create_user(id: str, password: str, gender: str):
     user = UserTable()
     user.id = id
-    user.pswd = password
+    user.user_password = password
     user.gender = gender
     session.add(user)
     session.commit()
@@ -61,6 +61,6 @@ async def update_user(users: List[User]):
     for new_user in users:
         user = session.query(UserTable).\
             filter(UserTable.id == new_user.id).first()
-        user.password = new_user.password
+        user.user_password = new_user.password
         user.gender = new_user.gender
         session.commit()
