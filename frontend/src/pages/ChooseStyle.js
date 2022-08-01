@@ -2,7 +2,6 @@ import React from "react";
 import FemaleSlide from "../components/FemaleSlider";
 import MaleSlide from "../components/MaleSlider";
 import ModelUploader from "../components/ModelUploader";
-import Button from "../components/GenderButton";
 
 function ChooseStyle() {
     
@@ -10,9 +9,13 @@ return (
     <div className="background-image-main">
 
     <div className = "title-text-black-3">Choose hair style or upload</div>
-    <Button female> Female</Button>
+    <div style = {{color:'black', width: '100%', textAlign:'center', fontSize: '30px', fontFamily:'ariblk', paddingTop: '20px', color : '#9370db', fontWeight:'bold'}}>
+    Female
+    </div>
     <FemaleSlide />
-    <Button male> Male</Button>
+    <div style = {{color:'black', width: '100%', textAlign:'center', fontSize: '30px', fontFamily:'ariblk', paddingTop: '20px', color : '#4682b4', fontWeight:'bold'}}>
+    Male
+     </div>
     <MaleSlide />
     <div style= {{textAlign : 'center'}}>
     {/*임시로 스타일/색깔 적용 완료 페이지로 이동시켰습니다.*/}
