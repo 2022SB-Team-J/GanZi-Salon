@@ -46,7 +46,7 @@ const [image, setImage] = useState({
       if(image.image_file){
         const formData = new FormData()
         formData.append('file', image.image_file);
-        await axios.post('/api/image/upload', formData);
+        await axios.post('/api/getstyleimage', formData);
         alert("Change Style 버튼을 눌러주세요!");
         setImage({
           image_file: "",

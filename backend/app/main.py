@@ -33,6 +33,18 @@ async def read_fastapi_hello():
     print("hellllo")
     return {"Hello" : "fastapii"}
 
+# 사용자 사진받아오는 api
+@app.get("/api/getuserimage")
+def get_user_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
+# 헤어스타일 사진받아오는 api
+@app.get("/api/getstyleimage")
+def get_style_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
 # image테이블에 있는 모든 data read
 @app.get("/api/images")
 def read_images():
