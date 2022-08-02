@@ -11,7 +11,7 @@ CREATE TABLE user (
 );
 CREATE TABLE image (
     image_index INT NOT NULL AUTO_INCREMENT,
-    user_index INT NOT NULL unique,
+    user_index INT NOT NULL,
     image_url VARCHAR(200) NOT NULL,
     create_at datetime default now(),
     PRIMARY KEY (image_index),
