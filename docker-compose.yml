@@ -2,7 +2,6 @@ version: '3'
 
 services:
   frontend:
-    #Dockerfile의 경로
     build: ./frontend
     command: ["npm", "start"]
     ports:
@@ -10,8 +9,7 @@ services:
     volumes:
       - ./frontend:/app
 
-
-    # 연결할 외부 디렉토리 : 컨테이너 내 디렉토리(작업공간 app으로 설정해줌 -> frontend/Dockerfile)
+      
   backend:
     build: ./backend
     ports:
@@ -20,7 +18,18 @@ services:
     - .:/user/src/gz-salon
 
 
-  db:    # 서비스명 
+  ai:
+    build: ./ai_model
+    image: continuumio/miniconda3
+    ports: 
+      - "8888:8888"
+    volumes:
+      - ai_data:/var/lib/ai
+    stdin_open: true
+    tty: true
+    
+
+  db:    
     image: mysql:8.0.29
     ports:  
       - "3306:3306"
@@ -34,8 +43,10 @@ services:
       - --character-set-server=UTF8
       - --collation-server=utf8_general_ci
     restart: always
-    
+  
+ 
 volumes : 
   mysql_data:
+  ai_data:
 
 

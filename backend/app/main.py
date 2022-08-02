@@ -39,13 +39,32 @@ async def read_fastapi_hello():
     print("hellllo")
     return {"Hello" : "fastapii"}
 
-@app.get("/users")
+# 사용자 사진받아오는 api
+@app.get("/api/getuserimage")
+def get_user_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
+# 헤어스타일 사진받아오는 api
+@app.get("/api/getstyleimage")
+def get_style_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
+# image테이블에 있는 모든 data read
+@app.get("/api/images")
+def read_images():
+    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
+    return images
+
+# user테이블에 있는 모든 유저 read
+@app.get("/api/users")
 def read_users():
     users = session.query(UserTable).order_by(UserTable.user_index).all()
     return users
 
-
-@app.get("/user/{id}")
+# user테이블에 있는 유저 검색 <- user id로 검색
+@app.get("/api/user/{id}")
 def read_user(id: str):
     user = session.query(UserTable).\
         filter(UserTable.id == id).first()
@@ -58,6 +77,7 @@ async def create_user(id: str, name : str ,  password: str, gender: str):
     user.id = id
     user.user_name = name
     user.user_password = password
+    user.user_name = name
     user.gender = gender
     session.add(user)
     session.commit()
@@ -69,6 +89,7 @@ async def update_user(users: List[User]):
         user = session.query(UserTable).\
             filter(UserTable.id == new_user.id).first()
         user.user_password = new_user.password
+        user.name = new_user.name
         user.gender = new_user.gender
         session.commit()
 
