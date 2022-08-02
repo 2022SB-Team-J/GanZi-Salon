@@ -10,10 +10,10 @@ CREATE TABLE user (
     PRIMARY KEY (user_index)
 );
 CREATE TABLE image (
-    img_index INT NOT NULL AUTO_INCREMENT,
-    user_index INT NOT NULL unique,
-    img_url VARCHAR(200) NOT NULL,
+    image_index INT NOT NULL AUTO_INCREMENT,
+    user_index INT NOT NULL,
+    image_url VARCHAR(200) NOT NULL,
     create_at datetime default now(),
-    PRIMARY KEY (img_index),
+    PRIMARY KEY (image_index),
     FOREIGN KEY (user_index) REFERENCES user (user_index)
 );

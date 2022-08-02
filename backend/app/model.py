@@ -1,8 +1,10 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP
-from datetime import datetime
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
 from pydantic import BaseModel
 from db import Base
 from db import ENGINE
+from sqlalchemy.types import TIMESTAMP
+from sqlalchemy.sql import func
+
 
 
 class UserTable(Base):
@@ -13,8 +15,8 @@ class UserTable(Base):
     user_password = Column(String(20),nullable=False)
     gender = Column(String(1), default = 'N')
     is_active = Column(Boolean, default=True)
-    create_at = Column(TIMESTAMP, default = datetime.now())
-    upload_at = Column(TIMESTAMP, default = datetime.now())
+    create_at = Column(TIMESTAMP, server_default = func.now() )
+    upload_at = Column(TIMESTAMP, server_default = func.now() )
 
 
 class User(BaseModel):
@@ -27,17 +29,17 @@ class User(BaseModel):
 
 
 class ImageTable(Base):
-    __tablename__ = "images"
-    img_index = Column(Integer, primary_key=True, autoincrement=True) 
+    __tablename__ = "image"
+    image_index = Column(Integer, primary_key=True, autoincrement=True) 
     user_index = Column(Integer, ForeignKey('user.user_index'), nullable=False)
-    img_url = Column(String(100), nullable=False)
-    create_at = Column(TIMESTAMP, default = datetime.now() )
+    image_url = Column(String(100), nullable=False)
+    create_at = Column(TIMESTAMP, server_default = func.now())
 
 
 class Image(BaseModel):
-    img_index: int
+    image_index: int
     user_index: int 
-    img_url: str
+    image_url: str
     create_at: str
 
 
