@@ -67,51 +67,6 @@ def main(args):
         solver.male(loaders)
 
 
-    # if args.mode == 'train':
-    #     assert len(subdirs(args.train_img_dir)) == args.num_domains
-    #     assert len(subdirs(args.val_img_dir)) == args.num_domains
-    #     loaders = Munch(src=get_train_loader(root=args.train_img_dir,
-    #                                          which='source',
-    #                                          img_size=args.img_size,
-    #                                          batch_size=args.batch_size,
-    #                                          prob=args.randcrop_prob,
-    #                                          num_workers=args.num_workers),
-    #                     ref=get_train_loader(root=args.train_img_dir,
-    #                                          which='reference',
-    #                                          img_size=args.img_size,
-    #                                          batch_size=args.batch_size,
-    #                                          prob=args.randcrop_prob,
-    #                                          num_workers=args.num_workers),
-    #                     val=get_test_loader(root=args.val_img_dir,
-    #                                         img_size=args.img_size,
-    #                                         batch_size=args.val_batch_size,
-    #                                         shuffle=True,
-    #                                         num_workers=args.num_workers))
-    #     solver.train(loaders)
-    # elif args.mode == 'sample':
-    #     assert len(subdirs(args.src_dir)) == args.num_domains
-    #     assert len(subdirs(args.ref_dir)) == args.num_domains
-    #     loaders = Munch(src=get_test_loader(root=args.src_dir,
-    #                                         img_size=args.img_size,
-    #                                         batch_size=args.val_batch_size,
-    #                                         shuffle=False,
-    #                                         num_workers=args.num_workers),
-    #                     ref=get_test_loader(root=args.ref_dir,
-    #                                         img_size=args.img_size,
-    #                                         batch_size=args.val_batch_size,
-    #                                         shuffle=False,
-    #                                         num_workers=args.num_workers))
-    #     solver.sample(loaders)
-    # elif args.mode == 'eval':
-    #     solver.evaluate()
-    # elif args.mode == 'align':
-    #     from core.wing import align_faces
-    #     align_faces(args, args.inp_dir, args.out_dir)
-    # else:
-    #     raise NotImplementedError
-
-
-
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
