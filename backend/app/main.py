@@ -39,11 +39,13 @@ async def read_fastapi_hello():
     print("hellllo")
     return {"Hello" : "fastapii"}
 
+
 # 사용자 사진받아오는 api
 @app.get("/api/getuserimage")
 def get_user_images():
     images = session.query(ImageTable).order_by(ImageTable.image_index).all()
     return images
+
 
 # 헤어스타일 사진받아오는 api
 @app.get("/api/getstyleimage")
@@ -51,17 +53,20 @@ def get_style_images():
     images = session.query(ImageTable).order_by(ImageTable.image_index).all()
     return images
 
+
 # image테이블에 있는 모든 data read
 @app.get("/api/images")
 def read_images():
     images = session.query(ImageTable).order_by(ImageTable.image_index).all()
     return images
 
+
 # user테이블에 있는 모든 유저 read
-@app.get("/api/users")
+@app.get("/api/readusers")
 def read_users():
     users = session.query(UserTable).order_by(UserTable.user_index).all()
     return users
+
 
 # user테이블에 있는 유저 검색 <- user id로 검색
 @app.get("/api/user/{id}")
@@ -71,8 +76,9 @@ def read_user(id: str):
     return user
 
 
-@app.post("/user")
-async def create_user(id: str, name : str ,  password: str, gender: str):
+# create user api
+@app.post("/api/createuser")
+async def create_user(id: str, name: str, password: str, gender: str):
     user = UserTable()
     user.id = id
     user.user_name = name
@@ -83,7 +89,7 @@ async def create_user(id: str, name : str ,  password: str, gender: str):
     session.commit()
 
 
-@app.put("/users")
+@app.put("/api/updateuser")
 async def update_user(users: List[User]):
     for new_user in users:
         user = session.query(UserTable).\
@@ -92,8 +98,10 @@ async def update_user(users: List[User]):
         user.name = new_user.name
         user.gender = new_user.gender
         session.commit()
-
-@app.post("/upload", status_code=200, description="***** Upload JPG asset to S3 *****")
+        
+        
+# 결과이미지를 aws로 upload하는 api
+@app.post("/api/awsupload", status_code=200, description="***** Upload JPG asset to S3 *****")
 async def upload(file_object: UploadFile = File(...),):
     file_object.filename = f"{uuid.uuid4()}.jpeg"
     content = await file_object.read()
@@ -101,9 +109,8 @@ async def upload(file_object: UploadFile = File(...),):
         # forward line upload image to S3 file
     image_file = ImageTable()
     image_file.user_index = 1
-   # image_file.user_index = Image.query.join(Image.user_index).filter(User.user_index == session.get('login')).all()
-    #I cannot prove this code would work perfectly ,  please give me some opinion.
-    
+    # image_file.user_index = Image.query.join(Image.user_index).filter(User.user_index == session.get('login')).all()
+    # I cannot prove this code would work perfectly ,  please give me some opinion.
     image_file.image_url = f"https://ganzibu.s3.amazonaws.com/{file_object.filename}"
     image_file.create_at = func.now()
     session.add(image_file)
