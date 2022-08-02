@@ -139,7 +139,7 @@ const SignUp = () => {
                 
                 
                 >
-                회원가입
+                Sign up
                 </Button>
 
                 

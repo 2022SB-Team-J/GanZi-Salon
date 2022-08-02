@@ -46,7 +46,7 @@ const [image, setImage] = useState({
       if(image.image_file){
         const formData = new FormData()
         formData.append('file', image.image_file);
-        await axios.post('/api/image/upload', formData);
+        await axios.post('/api/images', formData);
         alert("Change Style 버튼을 눌러주세요!");
         setImage({
           image_file: "",
@@ -63,15 +63,14 @@ const [image, setImage] = useState({
   return (
     <>
     
-      <Button  uploadimage onClick={handleShow}>
+    <Button  uploadimage onClick={handleShow}>
         Upload
-      </Button>
-
+    </Button>
 
 {/* 최종 결과 전송하기 버튼 */}
-      <Link to="/AppliedStyleFinal" style={{ textDecoration: "none", marginLeft:'50px' }}>
-      <Button final>Result</Button>
-      </Link>
+    <Link to="/AppliedStyleFinal" style={{ textDecoration: "none" }}>
+    <Button final>결과 확인하기</Button>
+    </Link>
 
 
       <Modal show={show} onHide={handleClose}>
@@ -100,9 +99,6 @@ const [image, setImage] = useState({
         <Button onClick={deleteImage}>
           Delete
         </Button>
-
-
-        
         <Button onClick={sendImageToServer}>
           Upload
         </Button>
