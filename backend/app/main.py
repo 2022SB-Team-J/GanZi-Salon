@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from typing import List, Optional
+
+from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware  
 from db import session 
 from model import UserTable, User 
@@ -45,15 +47,22 @@ def read_user(id: str):
         filter(UserTable.id == id).first()
     return user
 
+class UserIn(BaseModel):
+    username: str
+    id : str
+    password: str
+    gender :str
 
-@app.post("/user")
-async def create_user(id: str, password: str, gender: str):
-    user = UserTable()
-    user.id = id
-    user.pswd = password
-    user.gender = gender
-    session.add(user)
-    session.commit()
+
+class UserOut(BaseModel):
+    username: str
+    id : str
+    gender :str
+
+
+@app.post("/user", status_code=201, response_model=UserOut)
+async def create_user(user:UserIn):
+    return user
 
 
 @app.put("/users")
