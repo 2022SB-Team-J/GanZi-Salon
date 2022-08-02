@@ -48,6 +48,17 @@ const StyledButton = styled.button`
       
       
       `}
+      ${(props) =>
+        props.style &&
+        `
+        
+        color: #fff;
+        background: #B0E0E6;
+        display: inline-block;
+        width: 200px;
+        margin-left: 0px;
+        `
+        }
 `;
 
 export default function Button({ children, ...props }) {

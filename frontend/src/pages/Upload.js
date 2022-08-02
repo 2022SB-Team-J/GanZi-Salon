@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../components/UploadButton";
+
 import SelfieUploader from "../components/SelfieUploader";
 
 function Upload() {
@@ -14,11 +13,8 @@ return (
     <SelfieUploader/>
 
     <div style= {{textAlign : 'center'}}>
-    <Link to="/ChooseStyle" style={{ textDecoration: "none" }}>
-        <Button style >Change Style</Button>
-    </Link>
-    </div>
 
+    </div>
     </div>
     
 );

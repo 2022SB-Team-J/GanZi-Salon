@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Button from "./LoginButton";
+
 import axios from 'axios';
 import "../css/uploader.css";
-
+import { Link } from "react-router-dom";
 const SelfieUploader = () => {
 
   const [image, setImage] = useState({
@@ -49,6 +50,7 @@ const SelfieUploader = () => {
       });
     }
     else{
+      
       alert("사진을 등록하세요!")
     }
   }
@@ -70,15 +72,18 @@ const SelfieUploader = () => {
 
       <div className="upload-button">
         <Button onClick={() => inputRef.click()}>
-          Preview
+          Upload
         </Button>
         <Button  onClick={deleteImage}>
           Delete
         </Button>
-        <Button  onClick={sendImageToServer}>
-          Upload
-        </Button>
+        
       </div>
+      <div>
+      <Link to="/ChooseStyle" >
+        <Button style onClick={sendImageToServer}>Change Style</Button>
+    </Link>
+    </div>
     </div>
   );
 }

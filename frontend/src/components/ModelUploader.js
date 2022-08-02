@@ -64,13 +64,12 @@ const [image, setImage] = useState({
     <>
     
     <Button  uploadimage onClick={handleShow}>
-        Upload 
+        Upload
     </Button>
 
 {/* 최종 결과 전송하기 버튼 */}
-    <Link to="/AppliedStyleFinal" style={{ textDecoration: "none" ,marginLeft :"50px"}}>
-
-    <Button final> Result</Button>
+    <Link to="/AppliedStyleFinal" style={{ textDecoration: "none",marginLeft :"50px" }}>
+    <Button final>결과 확인하기</Button>
     </Link>
 
 
@@ -94,16 +93,24 @@ const [image, setImage] = useState({
       </div>
 
       <div className="upload-button">
-        <Button onClick={() => inputRef.click()}>
+        <Button onClick={() => {inputRef.click()}}>
           Upload
         </Button>
         <Button onClick={deleteImage}>
           Delete
         </Button>
       
+        
       </div>
     </div>
     </Modal.Body>
+    <div className="uploader-wrapper">
+    <Modal.Footer>
+    <Button onClick={sendImageToServer}>
+          Apply
+        </Button>
+        </Modal.Footer>
+        </div>
       </Modal>
     </>
   );
