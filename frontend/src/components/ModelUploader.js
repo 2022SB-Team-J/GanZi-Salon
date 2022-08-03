@@ -47,7 +47,7 @@ const [image, setImage] = useState({
         const formData = new FormData()
         formData.append('file', image.image_file);
         await axios.post('/api/getstyleimage', formData);
-        alert("Change Style 버튼을 눌러주세요!");
+        alert("적용 완료!");
         setImage({
           image_file: "",
           preview_URL: "img/default_image.png",
@@ -109,6 +109,7 @@ const [image, setImage] = useState({
     <Button onClick={sendImageToServer}>
           Apply
         </Button>
+        
         </Modal.Footer>
         </div>
       </Modal>

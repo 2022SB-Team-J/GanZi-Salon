@@ -30,7 +30,7 @@ export default class SwipeToSlide extends Component {
       <div>
         
         <Slider {...settings}>
-          <div>
+          <div >
           <img className="guideImg" src={Female01} alt = ""/>
           </div>
           <div>

@@ -1,8 +1,13 @@
-
+import { Link} from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 
-function Loading() {
+
+const Loading = () => {
+  setTimeout(()=> {
+    <Link to="/AppiledStyleFinal"></Link>
+  }, 2000);
   return (
+    
     <div className="background-image-black">
     
     <div className = "title-text-white-4"></div>
@@ -20,6 +25,7 @@ function Loading() {
     <Spinner animation="grow" variant="info" />
     </div>
     </div>
+     
   );
 }
 
