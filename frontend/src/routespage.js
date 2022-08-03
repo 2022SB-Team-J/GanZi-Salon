@@ -8,6 +8,8 @@ import AppliedColor from './pages/backupPages/AppliedColor';
 import History from './pages/History';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Loading from './pages/Loading';
+
 
 
 const routes = [
@@ -52,7 +54,10 @@ const routes = [
         page : '/Title',
         component : Title
     },
-    
+    {
+        page : '/Loading',
+        component : Loading
+    },
 ];
 
 export default routes;
