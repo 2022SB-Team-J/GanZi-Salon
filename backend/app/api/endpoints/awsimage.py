@@ -1,10 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException,UploadFile,File
-from database import session
+from db import session
 
 from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
-from schemas.image_schema import Image
-from models.image import ImageTable
-from api.dep import get_db
+from model import Image, ImageTable
 
 #AWS import something
 from aws.bucket import post_bucket
