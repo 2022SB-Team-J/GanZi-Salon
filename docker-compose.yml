@@ -29,8 +29,15 @@ services:
 #    tty: true
 #
 
-  web-test:
+  nginx:
+    container_name: "nginx_server"
     image: "nginx:latest"
+    ports:
+      - 80:80
+    volumes:
+      - .nginx/nginx.conf:etc/nginx/nginx.conf
+    depends_on:
+      - backend
   
  
 volumes : 
