@@ -6,9 +6,12 @@ from model import Image, ImageTable
 from typing import List
 
 from PIL import Image
+from tempfile import NamedTemporaryFile
 import shutil
+from shutil import copyfile
 from pathlib import Path
 import os
+from os import rename
 
 router = APIRouter()
 
@@ -26,19 +29,24 @@ async def get_user_images(file_o):
 
 # 헤어스타일 사진 get
 @router.post("/getstyleimage")
-async def get_style_images(image: UploadFile = File(...)):
-    content = await image.read()
-    with open(os.path.join(REF_FE_DIR, image.filename), "wb") as fp:
-        fp.write(content)
-    print(image.filename)
-    return {"filename": image.filename}
-
-
-async def create_upload_files(files: List[UploadFile] = File(...)):
-    UPLOAD_DIRECTORY = "./"
-    for file in files:
-        contents = await file.read()
-        with open(os.path.join(UPLOAD_DIRECTORY, file.filename), "wb") as fp:
-            fp.write(contents)
-        print(file.filename)
-    return {"filenames": [file.filename for file in files]}
+def save_image_tmp(image: UploadFile) -> Path:
+    
+    print(Path(__file__).resolve())
+    print(__file__)
+    print(os.path.realpath(__file__))
+    print(os.path.abspath(__file__))
+    print(os.listdir(os.getcwd()))
+    print()
+    
+    try:
+        image.filename = f'ref.png'
+        print(str(os.path.join(REF_FE_DIR, image.filename)))
+        suffix = Path(image.filename).suffix
+        with NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            shutil.copyfileobj(image.file, tmp)
+            tmp_path = Path(tmp.name)
+            shutil.copyfile(tmp_path, '/img')
+            print('success')
+    finally:
+        shutil.copyfile(tmp_path, '/img')
+    return tmp_path
