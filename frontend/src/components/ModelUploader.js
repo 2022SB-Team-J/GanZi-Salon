@@ -69,7 +69,7 @@ const [image, setImage] = useState({
 
 {/* 최종 결과 전송하기 버튼 */}
     <Link to="/Loading" style={{ marginLeft :"50px" }}>
-    <Button final>결과 확인하기</Button>
+    <Button final>Result</Button>
     </Link>
 
 
