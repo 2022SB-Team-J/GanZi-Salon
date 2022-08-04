@@ -1,4 +1,5 @@
-from fastapi import APIRouter, Depends, HTTPException,UploadFile,File
+from fastapi import APIRouter, Depends, HTTPException,UploadFile,File,status
+from fastapi.responses import JSONResponse
 from db import session
 
 from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
@@ -27,7 +28,7 @@ async def get_user_images(file_o):
     return images
 
 
-# 헤어스타일 사진 get
+# Save upload image - hair style image -1
 @router.post("/getstyleimage")
 def save_image_tmp(image: UploadFile) -> Path:
     
@@ -50,3 +51,24 @@ def save_image_tmp(image: UploadFile) -> Path:
     finally:
         shutil.copyfile(tmp_path, '/img')
     return tmp_path
+
+
+# Save upload image - hair style image -2
+@router.post("/upload-file/")
+async def create_upload_file(uploaded_file: UploadFile = File(...)):    
+    # file_location = f"files/{uploaded_file.filename}"
+    try:
+        file_location = f"/{uploaded_file.filename}"
+        with open(file_location, "wb+") as file_object:
+            shutil.copyfileobj(uploaded_file.file, file_object)   
+    except Exception as e:
+        return JSONResponse(
+            status_code = status.HTTP_400_BAD_REQUEST,
+            content = { 'message' : str(e) }
+            )
+    else:
+        return JSONResponse(
+            status_code = status.HTTP_200_OK,
+            content = {"info": f"file '{uploaded_file.filename}' saved at '{file_location}'"}
+            )     
+# https://stackoverflow.com/questions/63580229/how-to-save-uploadfile-in-fastapi
