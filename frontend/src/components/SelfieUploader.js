@@ -42,7 +42,7 @@ const SelfieUploader = () => {
     if(image.image_file){
       const formData = new FormData()
       formData.append('file', image.image_file);
-      await axios.post('/api/getuserimage', formData);
+      await axios.post('/api/logic/getuserimage', formData);
       alert("Change Style 버튼을 눌러주세요!");
       setImage({
         image_file: "",

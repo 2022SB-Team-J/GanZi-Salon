@@ -46,7 +46,7 @@ const [image, setImage] = useState({
       if(image.image_file){
         const formData = new FormData()
         formData.append('file', image.image_file);
-        await axios.post('/api/getstyleimage', formData);
+        await axios.post('/api/logic/getstyleimage', formData);
         alert("적용 완료!");
         setImage({
           image_file: "",
