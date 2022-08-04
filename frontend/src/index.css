@@ -203,3 +203,20 @@ body {
   height : 180px;
   border-radius: 25%;
 }
+.historyImage {
+  display: block;
+  margin: 0px auto;
+  width : 200px;
+  height : 200px;
+  border-radius: 25%;
+}
+.resultImage
+{
+  
+  margin-top: 20px;
+  
+  background-image: url("./images/result/4_result.jpg");
+  background-size: cover;
+  width : 250px;
+  height : 250px;
+}

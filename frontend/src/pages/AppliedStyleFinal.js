@@ -11,7 +11,7 @@ return (
     <div className = "title-text-black">Beautiful Hair!</div>
     
     <div style={{display: 'flex' ,  justifyContent:'center'}}>
-    <div className = "testimage-1"></div> 
+    <div className = "resultImage"></div> 
     </div>
 
     <div style= {{textAlign : 'center'}}>

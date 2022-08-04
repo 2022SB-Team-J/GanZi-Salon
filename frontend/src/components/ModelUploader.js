@@ -5,7 +5,6 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import "../css/uploader.css";
 
-
 function ModelUploader() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -43,11 +42,13 @@ const [image, setImage] = useState({
     }
   
     const sendImageToServer = async () => {
+      
+        alert("적용 완료!")
       if(image.image_file){
         const formData = new FormData()
         formData.append('file', image.image_file);
         await axios.post('/api/getstyleimage', formData);
-        alert("적용 완료!");
+        
         setImage({
           image_file: "",
           preview_URL: "img/default_image.png",
@@ -75,7 +76,7 @@ const [image, setImage] = useState({
 
       <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
-          <Modal.Title> Model Image Upload</Modal.Title>
+          <Modal.Title> Image Upload</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <div className="uploader-wrapper">

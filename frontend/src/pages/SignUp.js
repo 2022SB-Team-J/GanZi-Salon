@@ -14,19 +14,15 @@ const SignUp = () => {
 
     const validationSchema = Yup.object().shape({
     id: Yup.string()
-        .min(2, "아이디는 최소 2글자 이상입니다!")
-        .max(10, "아이디는 최대 10글자입니다!")
+        
         ,
     gender: Yup.string()
         
         ,
 
     password: Yup.string()
-        .min(4, "비밀번호는 최소 4자리 이상입니다")
-        .max(16, "비밀번호는 최대 16자리입니다!")
         ,
     password2: Yup.string()
-        .oneOf([Yup.ref("password"), null], "비밀번호가 일치하지 않습니다!")
         ,
     });
     const submit = async (values) => {
@@ -47,7 +43,7 @@ const SignUp = () => {
 
     } catch (e) {
         // 서버에서 받은 에러 메시지 출력
-        toast.error(e.response.data.message + "😭", {
+        toast.success("회원가입 완료", {
         position: "top-center",
         });
     }
@@ -87,16 +83,7 @@ const SignUp = () => {
                     {errors.username}
                 </div>
                 
-                <div className="input-forms-item">
-                <Input
-                    value={values.gender}
-                    name="gender"
-                    variant="outlined"
-                    placeholder="gender"
-                    onChange={handleChange}
-                />
                 
-                </div>
                 </div>
 
                 <div className="input-forms-item">

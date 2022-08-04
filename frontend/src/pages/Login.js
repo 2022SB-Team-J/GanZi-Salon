@@ -87,14 +87,11 @@ const Login = () => {
                   <ErrorMessage name="password"/>
                 </div>
               </div>
-              <Button signin
-                color="primary"
-                variant="contained"
-                fullWidth
-                type="submit"
-              >
+              <Link to="/Title" style={{ textDecoration: "none" }}>
+              <Button signin>
                 Login
               </Button>
+              </Link>
               <Link to="/signup">
               <Button signup>
                 Sign Up
