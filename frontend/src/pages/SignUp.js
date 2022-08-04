@@ -56,6 +56,7 @@ const SignUp = () => {
     return (
       <Formik
         initialValues={{
+        name:"",
         id: "",
         gender: "",
         password: "",
@@ -70,12 +71,24 @@ const SignUp = () => {
             <div className="signup-wrapper">
             <ToastContainer />
 
-            <div style = {{marginTop : '100px', marginBottom: '30px'}}>
+            <div style = {{marginTop : '50px', marginBottom: '30px'}}>
             <div className = "title-text-white"  >GANZI SALON </div>
             <div className = "title-text-white-3"  >SIGN UP </div>
             <form onSubmit={handleSubmit} autoComplete="off">
             <div className="input-forms">
                 <div className="input-forms-item">
+
+                <Input
+                    value={values.username}
+                    name="name"
+                    variant="outlined"
+                    onChange={handleChange}
+                    placeholder="name"
+                />
+                <div className="error-message">
+                    {errors.username}
+                </div>
+
                 <Input
                     value={values.username}
                     name="id"
@@ -84,7 +97,7 @@ const SignUp = () => {
                     placeholder="id"
                 />
                 <div className="error-message">
-                    {errors.username}
+                    {errors.usernickname}
                 </div>
                 
                 <div className="input-forms-item">
@@ -134,12 +147,12 @@ const SignUp = () => {
                 variant='contained'
                 fullWidth
                 type='submit'
-                width='fit-content'
+                width='fit-content='
                 margin='auto'
                 
                 
                 >
-                Sign up
+                Sign Up
                 </Button>
 
                 
