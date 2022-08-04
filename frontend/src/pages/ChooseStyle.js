@@ -9,14 +9,14 @@ return (
     <div className="background-image-main">
 
     <div className = "title-text-black-3">Choose hair style or upload</div>
-    <div style = {{marginLeft: '100px',  fontSize: '30px', paddingTop: '20px', color : '#9370db', fontWeight:'bold'}}>
+    <div style = {{marginLeft: '100px',  fontSize: '30px', paddingTop: '0px', color : '#9370db', fontWeight:'bold'}}>
     Female
     </div>
     <FemaleSlide />
-    <div style = {{textAlign: 'center',  fontSize: '30px', paddingTop: '20px', color : 'Gray', fontWeight:'bold'}}>
+    <div style = {{textAlign: 'center',  fontSize: '20px', paddingTop: '0px', color : 'Gray', fontWeight:'bold'}}>
     슬라이드 하여 모델을 선택하세요!
     </div>
-    <div style = {{marginLeft: '120px', fontSize: '30px', paddingTop: '20px', color : '#4682b4', fontWeight:'bold'}}>
+    <div style = {{marginLeft: '120px', fontSize: '30px', paddingTop: '0px', color : '#4682b4', fontWeight:'bold'}}>
     Male
      </div>
     <MaleSlide />

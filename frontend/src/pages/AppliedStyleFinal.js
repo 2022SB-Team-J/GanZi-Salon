@@ -15,13 +15,10 @@ return (
     </div>
 
     <div style= {{textAlign : 'center'}}>
-    <Link to="/Title" style={{ textDecoration: "none" }}>
+    <Link to="/History" style={{ textDecoration: "none" }}>
         <Button blueButton >Done & Save</Button>
     </Link>
     {/* 임시로 Title 페이지로 이동하게 세팅 */}
-    <Link to="/Title" style={{ textDecoration: "none" }}>
-        <Button redButton >Share</Button>
-    </Link>
     </div>
     
     </div>
