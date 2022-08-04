@@ -36,11 +36,11 @@ async def get_style_images(image: UploadFile = File(...)):
     return {"filename": image.filename}
 
 
-async def create_upload_files(files: List[UploadFile] = File(...)):
-    UPLOAD_DIRECTORY = "./"
-    for file in files:
-        contents = await file.read()
-        with open(os.path.join(UPLOAD_DIRECTORY, file.filename), "wb") as fp:
-            fp.write(contents)
-        print(file.filename)
-    return {"filenames": [file.filename for file in files]}
+
+@router.post("/upload-file/")
+async def create_upload_file(uploaded_file: UploadFile = File(...)):    
+    # file_location = f"files/{uploaded_file.filename}"
+    file_location = f"img/{uploaded_file.filename}"
+    with open(file_location, "wb+") as file_object:
+        shutil.copyfileobj(uploaded_file.file, file_object)    
+    return {"info": f"file '{uploaded_file.filename}' saved at '{file_location}'"}
