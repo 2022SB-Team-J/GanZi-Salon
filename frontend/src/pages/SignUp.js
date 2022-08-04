@@ -13,6 +13,9 @@ import "../css/signUp.css";
 const SignUp = () => {
 
     const validationSchema = Yup.object().shape({
+    name: Yup.string()
+        
+        ,
     id: Yup.string()
         
         ,
@@ -52,6 +55,7 @@ const SignUp = () => {
     return (
       <Formik
         initialValues={{
+        name: "",
         id: "",
         gender: "",
         password: "",
@@ -72,6 +76,18 @@ const SignUp = () => {
             <form onSubmit={handleSubmit} autoComplete="off">
             <div className="input-forms">
                 <div className="input-forms-item">
+                <Input
+                    value={values.username}
+                    name="name"
+                    variant="outlined"
+                    onChange={handleChange}
+                    placeholder="name"
+                />
+                <div className="error-message">
+                    {errors.username}
+                </div>
+                    
+                    
                 <Input
                     value={values.username}
                     name="id"
