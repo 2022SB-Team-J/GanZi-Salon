@@ -17,7 +17,9 @@ services:
     ports:
       - 8000:8000
     volumes:
-    - .:/user/src/gz-salon
+    - ./backend/:/backend/
+    depends_on:
+      - db
 
 
   db:    # 서비스명 

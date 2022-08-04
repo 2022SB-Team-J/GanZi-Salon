@@ -1,8 +1,11 @@
 from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, TIMESTAMP
 from datetime import datetime
 from pydantic import BaseModel
-from db import Base
-from db import ENGINE
+from sqlalchemy.sql import func
+from sqlalchemy.types import TIMESTAMP
+
+from .db import Base, session
+from .db import ENGINE
 
 
 class UserTable(Base):
@@ -11,8 +14,8 @@ class UserTable(Base):
     id = Column(String(20),unique=True, nullable=False)
     pswd = Column(String(20),nullable=False)
     gender = Column(String(1), default = 'N')
-    create_at = Column(TIMESTAMP, default = datetime.now())
-    upload_at = Column(TIMESTAMP, default = datetime.now())
+    create_at = Column(TIMESTAMP, server_default = func.now() )
+    upload_at = Column(TIMESTAMP, server_default = func.now() )
     is_active = Column(Boolean, default=True)
 
 
@@ -41,7 +44,6 @@ class Image(BaseModel):
 
 def main():
     Base.metadata.create_all(bind=ENGINE)
-
 
 if __name__ == "__main__":
     main()
