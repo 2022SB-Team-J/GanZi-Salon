@@ -16,7 +16,7 @@
 
 GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어스타일을 내 셀카와 함께 합성한 결과를 사용자에게 제공합니다. 결과물을 비교하면서 마음에 드는 헤어스타일을 찾아보세요!
 
-![image](https://user-images.githubusercontent.com/65939213/180506408-316e63b2-994e-4c2e-96fa-80ef97b4949a.png)
+![image](file:///Users/kimjihye/Desktop/Gan_img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-08-06%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%201.55.20.png)
 ![image](https://user-images.githubusercontent.com/65939213/180506451-202137ea-40cf-479f-9c69-a106d5e06435.png)
 ![image](https://user-images.githubusercontent.com/65939213/180506484-388c000c-b6f6-45e9-8f4e-ad06f4a933a6.png)
 ![image](https://user-images.githubusercontent.com/65939213/180506519-7a8a9a8f-ddf4-4318-9adb-1a4928100ca6.png)
@@ -32,6 +32,7 @@ GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어�
 ## 3. TechStack
 
 
+<<<<<<< HEAD
 Frontend: React / 
 Backend: Fast API / 
 Uvicorn / 
@@ -41,6 +42,15 @@ Docker /
 MySQL / 
 Rabbit MQ / 
 Celery
+=======
+Frontend: React
+Backend: Fast API
+GaN
+Uvicorn
+Nginx
+Docker
+MySQL
+>>>>>>> 4d87448b4288162e6e8611fdf2aae1262ea4d687
 
 
 Languages : 
