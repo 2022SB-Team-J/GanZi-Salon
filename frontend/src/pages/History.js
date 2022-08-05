@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../components/HistoryButton";
 import { Link } from "react-router-dom";
 
-import result4  from "../images/result/4_result.jpg";
+import result4  from "../images/result/firstResult.jpg";
 
 function History() {
     return(

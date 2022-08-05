@@ -41,14 +41,14 @@ export default class SwipeToSlide extends Component {
         
         <Slider {...settings}>
           <div >
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+          
           <img className="guideImg" src={Female01} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+          
           <img className="guideImg" src={Female02} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
           <OverlayTrigger trigger="click" placement="right" overlay={popover}>
@@ -56,29 +56,29 @@ export default class SwipeToSlide extends Component {
           </OverlayTrigger>
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+          
           <img className="guideImg" src={Female04} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+         
           <img className="guideImg" src={Female05} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+          
           <img className="guideImg" src={Female06} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+          
           <img className="guideImg" src={Female07} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
           <div>
-          <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+         
           <img className="guideImg" src={Female08} alt = ""/>
-          </OverlayTrigger>
+          
           </div>
         </Slider>
       </div>
