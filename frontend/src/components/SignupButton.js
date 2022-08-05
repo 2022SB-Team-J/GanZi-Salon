@@ -29,7 +29,25 @@ const StyledButton = styled.button`
     margin-left: 100px;
 
   `}
+  ${(props) =>
+    props.female &&
+    `
+    position: absolute; 
+    color: #fff;
+    background: #FF1493;
+    
+    `}
+  ${(props) =>
+    props.male &&
+    `
+    color: #fff;
+    background: #00BFFF;
+    position: absolute; 
+    left:50%;
+    margin-left:100px
+    `}
   `;
+  
   
   export default function Button({ children, ...props }) {
     return <StyledButton {...props}>{children}</StyledButton>;
