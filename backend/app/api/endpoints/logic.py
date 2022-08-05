@@ -16,32 +16,46 @@ from os import rename
 
 router = APIRouter()
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ASSETS_DIR = Path(__file__).resolve().parent.parent.parent.parent.parent
 SRC_FE_DIR = os.path.join(ASSETS_DIR,'ai_model','assets','celeba_hq','src','female', 'fe')
 REF_FE_DIR = os.path.join(ASSETS_DIR,'ai_model','assets','celeba_hq','ref','female', 'fe')
-
+SERVER_IMG_DIR = os.path.join('http://localhost:8000/','app/','img/')
 
 # 사용자 사진 get
 @router.get("/getuserimage")
-async def get_user_images(file_o):
-    images = session.query(ImageTable).order_by(ImageTable.image_index).all()
-    return images
+async def get_user_images(image: UploadFile) -> Path:
+    print(os.path.realpath(__file__))
+    print(os.path.abspath(__file__))
+    print(os.listdir(os.getcwd()))
+    print(str(os.path.join(SRC_FE_DIR, image.filename)))
+    print()
+    
+    try:
+        image.filename = f'src.png'
+        suffix = Path(image.filename).suffix
+        with NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+            shutil.copyfileobj(image.file, tmp)
+            tmp_path = Path(tmp.name)
+            shutil.copyfile(tmp_path, '/img')
+            print('success')
+    finally:
+        shutil.copyfile(tmp_path, '/img')
+    return tmp_path
 
 
 # Save upload image - hair style image -1
 @router.post("/getstyleimage")
 def save_image_tmp(image: UploadFile) -> Path:
     
-    print(Path(__file__).resolve())
-    print(__file__)
     print(os.path.realpath(__file__))
     print(os.path.abspath(__file__))
     print(os.listdir(os.getcwd()))
+    print(str(os.path.join(REF_FE_DIR, image.filename)))
     print()
     
     try:
         image.filename = f'ref.png'
-        print(str(os.path.join(REF_FE_DIR, image.filename)))
         suffix = Path(image.filename).suffix
         with NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
             shutil.copyfileobj(image.file, tmp)
@@ -54,7 +68,7 @@ def save_image_tmp(image: UploadFile) -> Path:
 
 
 # Save upload image - hair style image -2
-@router.post("/upload-file/")
+@router.post("/getstyleimage2")
 async def create_upload_file(uploaded_file: UploadFile = File(...)):    
     # file_location = f"files/{uploaded_file.filename}"
     try:
@@ -72,3 +86,19 @@ async def create_upload_file(uploaded_file: UploadFile = File(...)):
             content = {"info": f"file '{uploaded_file.filename}' saved at '{file_location}'"}
             )     
 # https://stackoverflow.com/questions/63580229/how-to-save-uploadfile-in-fastapi
+
+
+
+@router.post('/upload-images')
+async def upload_board( image : List[UploadFile] = File(...)):
+    print(BASE_DIR)
+    file_urls=[]
+    saved_file_name = 'ref.png'
+    print(saved_file_name)
+
+    file_location = os.path.join('.img',saved_file_name)
+    with open(file_location, "wb+") as file_object:
+        file_object.write(image.file.read())
+    file_urls.append(SERVER_IMG_DIR+saved_file_name)
+    result={'fileUrls' : file_urls}
+    return result
