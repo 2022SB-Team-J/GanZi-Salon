@@ -132,4 +132,3 @@ dmypy.json
 
 
 #aws username/password setting
-backend/app/aws/
