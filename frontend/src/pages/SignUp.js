@@ -82,16 +82,7 @@ const SignUp = () => {
                 
             <div className="input-forms-item">
 
-                <Input
-                    value={values.username}
-                    name="name"
-                    variant="outlined"
-                    onChange={handleChange}
-                    placeholder="name"
-                />
-                <div className="error-message">
-                    {errors.username}
-                </div>
+                
                 </div>
                 <div className="input-forms-item">
                 <Input
