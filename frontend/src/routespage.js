@@ -9,6 +9,7 @@ import History from './pages/History';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Loading from './pages/Loading';
+import Main from './pages/Main';
 
 
 
@@ -44,7 +45,7 @@ const routes = [
     },
     {
         page : '/',
-        component : Login
+        component : Main
     },
     {
         page : '/SignUp',
@@ -57,6 +58,10 @@ const routes = [
     {
         page : '/Loading',
         component : Loading
+    },
+    {
+        page : '/Login',
+        component : Login
     },
 ];
 

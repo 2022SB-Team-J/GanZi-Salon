@@ -12,6 +12,9 @@ import male07 from "../images/model/male07.jpeg";
 import male08 from "../images/model/male08.jpeg";
 
 
+
+
+
 export default class SwipeToSlide extends Component {
   render() {
     const settings = {
@@ -28,31 +31,46 @@ export default class SwipeToSlide extends Component {
     };
     return (
       <div>
-        
         <Slider {...settings}>
           <div>
+          
           <img className="guideImg" src={male01} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male02} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male03} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male04} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male05} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male06} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male07} alt = ""/>
+          
           </div>
           <div>
+          
           <img className="guideImg" src={male08} alt = ""/>
+          
           </div>
         </Slider>
       </div>

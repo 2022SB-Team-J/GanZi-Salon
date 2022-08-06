@@ -67,7 +67,10 @@ const SignUp = () => {
       >
         {({values, handleSubmit, handleChange, errors}) => (
         <div className="background-image-black">
+            <Button female style = {{bottom: '408px' , right: '870px'}}>female</Button>
+                <Button male style = {{bottom: '408px'}}>male</Button>
             <div className="signup-wrapper">
+
             <ToastContainer />
 
             <div style = {{marginTop : '100px', marginBottom: '30px'}}>
@@ -75,6 +78,12 @@ const SignUp = () => {
             <div className = "title-text-white-3"  >SIGN UP </div>
             <form onSubmit={handleSubmit} autoComplete="off">
             <div className="input-forms">
+            
+                
+            <div className="input-forms-item">
+
+                
+                </div>
                 <div className="input-forms-item">
                 <Input
                     value={values.username}
