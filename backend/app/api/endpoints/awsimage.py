@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException,UploadFile,File
-from db import session
+from database import session
 
 from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
-from model import Image, ImageTable
+from schemas.image_schema import Image
+from models.image import ImageTable
+from api.dep import get_db
 
 #AWS import something
 from aws.bucket import post_bucket
@@ -34,5 +36,3 @@ async def upload(file_object: UploadFile = File(...),):
     image_file.create_at = func.now()
     session.add(image_file)
     session.commit()
-
-

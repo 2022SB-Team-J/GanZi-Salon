@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException,UploadFile,File,status
 from fastapi.responses import JSONResponse
-from db import session
+from database import session
 
 from starlette.status import HTTP_201_CREATED, HTTP_204_NO_CONTENT
-from model import Image, ImageTable
+from models import Image, ImageTable
 from typing import List
 
 from PIL import Image

@@ -3,11 +3,12 @@ from starlette.middleware.cors import CORSMiddleware
 
 from api.api import api_router
 
-from db import Base
-from db import ENGINE
-
+from database import Base
+from database import engine
 
 app = FastAPI(title="간지살롱")
+
+Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,7 +19,6 @@ app.add_middleware(
     )
 
 app.include_router(api_router, prefix="/api")
-
 
 @app.get("/hello")
 async def read_fastapi_hello():
