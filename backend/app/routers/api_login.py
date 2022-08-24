@@ -1,4 +1,4 @@
-import bcrypt
+# import bcrypt
 from fastapi import Depends, HTTPException, APIRouter, status
 from fastapi.security import OAuth2PasswordRequestForm
 
@@ -10,21 +10,21 @@ api_router = APIRouter(
     tags=["로그인"],
     # dependencies=[Depends(get_query_token)]
 )
-@api_router.post("/api/auth/login", status_code=200)
-async def login(reg_info:UserInDB):
+# @api_router.post("/api/auth/login", status_code=200)
+# async def login(reg_info:UserInDB):
 
-    hash_pw = bcrypt.hashpw(reg_info.hashed_password.encode("utf-8"), bcrypt.gensalt())
-    if hash_pw :# crud에 들어갈 내용 대체
-        login_user = UserInDB(
-            user_id = reg_info.user_id,
-            username = reg_info.username,
-            hashed_password = hash_pw,
-            gender = reg_info.gender
-        )
+    # hash_pw = bcrypt.hashpw(reg_info.hashed_password.encode("utf-8"), bcrypt.gensalt())
+    # if hash_pw :# crud에 들어갈 내용 대체
+    #     login_user = UserInDB(
+    #         user_id = reg_info.user_id,
+    #         username = reg_info.username,
+    #         hashed_password = hash_pw,
+    #         gender = reg_info.gender
+    #     )
 
 
-    print("login>> ", login_user)
-    return login_user
+    # print("login>> ", login_user)
+    # return login_user
 
 
 # @api_router.post("/token")
