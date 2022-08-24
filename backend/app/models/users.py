@@ -13,6 +13,6 @@ class User(Base):
     user_password = Column(String)
     gender = Column(String(1), default = 'N')
 
-    created_at = Column(TIMESTAMP, nullable=False)
-    updated_at = Column(TIMESTAMP)
+    created_at = Column(String)
+    updated_at = Column(String)
     is_active = Column(Boolean, nullable=False)

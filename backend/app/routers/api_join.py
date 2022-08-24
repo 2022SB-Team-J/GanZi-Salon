@@ -1,8 +1,8 @@
 from fastapi import Depends, HTTPException, APIRouter, status
 from sqlalchemy.orm import Session
 
-from backend.app.crud import crud
-from backend.app.schemas import schemas
+from ..crud import crud
+from ..schemas import schemas
 
 api_router = APIRouter(
     tags=["회원가입"],
