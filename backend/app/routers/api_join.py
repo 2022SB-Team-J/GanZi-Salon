@@ -2,7 +2,11 @@ from fastapi import Depends, HTTPException, APIRouter, status
 from sqlalchemy.orm import Session
 
 from ..crud import crud
+from ..database import engine, SessionLocal, Base
 from ..schemas import schemas
+from ..models import users
+
+Base.metadata.create_all(bind=engine)
 
 api_router = APIRouter(
     tags=["회원가입"],
@@ -10,7 +14,7 @@ api_router = APIRouter(
 
 # Dependency
 def get_db():
-    db = Session()
+    db = SessionLocal()
     try:
         yield db
     finally:

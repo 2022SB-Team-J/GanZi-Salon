@@ -1,18 +1,12 @@
-from typing import Union, Any
-from fastapi import FastAPI, APIRouter, Depends, HTTPException
-from fastapi.security import OAuth2PasswordBearer
+from fastapi import FastAPI
 
-# 1 딕셔너리 형태로 예시 데이터 생성
-# from .models import User
 from .database import engine, Base
 from .routers import api_join, api_login
-# from .dependencies import get_query_token, get_token_header
-Base.metadata.create_all(bind=engine)
 
 
 app = FastAPI(title='gz-salon')
-app.include_router(api_login.api_router)
-app.include_router(api_join.api_router)
+app.include_router(api_login.api_router, prefix="/api")
+app.include_router(api_join.api_router, prefix="/api")
 
 @app.get("/")
 async def root():
