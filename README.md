@@ -32,7 +32,6 @@ GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어�
 ## 3. TechStack
 
 
-<<<<<<< HEAD
 Frontend: React / 
 Backend: Fast API / 
 Uvicorn / 
@@ -42,15 +41,6 @@ Docker /
 MySQL / 
 Rabbit MQ / 
 Celery
-=======
-Frontend: React
-Backend: Fast API
-GaN
-Uvicorn
-Nginx
-Docker
-MySQL
->>>>>>> 4d87448b4288162e6e8611fdf2aae1262ea4d687
 
 
 Languages : 
