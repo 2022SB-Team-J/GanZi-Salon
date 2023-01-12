@@ -4,10 +4,10 @@
 
 
   - [1. 소개](#1-소개)
-  - [2. 아키텍처](#2-아키텍처)
-  - [3. Tech Stack](#3-TechStack)
-  - [4. 실행 방법](#3-실행방법)
-  - [5. 팀원](#7-팀원)
+  - [2. System Architecture](#2-System-Architecture)
+  - [3. Tech Stack](#3-Tech-Stack)
+  - [4. 실행방법](#4-실행방법) 
+  - [5. 팀원](#5-팀원)
   
 ## 1. 소개
 **꼭 잘라봐야만 아나요?**
@@ -16,53 +16,27 @@
 
 GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어스타일을 내 셀카와 함께 합성한 결과를 사용자에게 제공합니다. 결과물을 비교하면서 마음에 드는 헤어스타일을 찾아보세요!
 
-![image](file:///Users/kimjihye/Desktop/Gan_img/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-08-06%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%201.55.20.png)
-![image](https://user-images.githubusercontent.com/65939213/180506451-202137ea-40cf-479f-9c69-a106d5e06435.png)
-![image](https://user-images.githubusercontent.com/65939213/180506484-388c000c-b6f6-45e9-8f4e-ad06f4a933a6.png)
-![image](https://user-images.githubusercontent.com/65939213/180506519-7a8a9a8f-ddf4-4318-9adb-1a4928100ca6.png)
-
-
 ## 2. System Architecture
 ![image](https://user-images.githubusercontent.com/65939213/180504822-fd3c108e-6e71-4d56-9b00-a84801579dff.png)
 
-#ERD
+### ERD
 ![image](https://user-images.githubusercontent.com/65939213/180504867-e9a3bf2d-0adb-4f93-8b1a-d115d69bae1d.png)
 
 
-## 3. TechStack
+## 3. Tech Stack
 
+<div align="center">
 
-Frontend: React / 
-Backend: Fast API / 
-Uvicorn / 
-STAR GAN / 
-Nginx / 
-Docker / 
-MySQL / 
-Rabbit MQ / 
-Celery
+### Frontend
+<img src="https://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black"/>
 
+### Backend
+<img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon S3-569A31?style=flat-square&logo=Amazon S3&logoColor=white"/> <img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=Celery&logoColor=white"/> <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=RabbitMQ&logoColor=white"/> 
 
-Languages : 
+### DevOps
+<img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon EC2&logoColor=white"/> 
 
-Python
-68.1%
- 
-JavaScript
-26.2%
- 
-CSS
-4.0%
- 
-HTML
-1.2%
- 
-Other
-0.5%
-
-
-
-
+</div>
 
 ## 4. 실행방법
 **npm 모듈 설치**
