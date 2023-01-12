@@ -59,5 +59,3 @@ docker-compose up
 | gitHub  | [gilyeon00](https://github.com/gilyeon00)                                     | [KoneJ](https://github.com/KoneJ)                                   | [@monitor5](https://github.com/monitor5)                                       | [@wisdomis](https://github.com/wisdomis)                                 | [@aristo0922](https://github.com/)                                 |
 
 
-![Footer](https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=footer)
-
