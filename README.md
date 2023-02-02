@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/65939213/180509669-ae084a9e-de4f-430e-a5bf-3d86f7887520.png)
 
-## 이 헤어가 나에게 잘 어울릴까?!
+# 이 헤어가 나에게 잘 어울릴까?!
 
 
   - [1. 소개](#1-소개)
@@ -9,36 +9,36 @@
   - [4. 실행방법](#4-실행방법) 
   - [5. 팀원](#5-팀원)
   
-## 1. 소개
-**꼭 잘라봐야만 아나요?**
+  
+# 1. 소개
+> ## 꼭 잘라봐야만 아나요?
 
 미용실에 가지 않고도 헤어스타일이 어떻게 변화할 지 아는 방법 아시는 분?
 
 GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어스타일을 내 셀카와 함께 합성한 결과를 사용자에게 제공합니다. 결과물을 비교하면서 마음에 드는 헤어스타일을 찾아보세요!
 
-## 2. System Architecture
+
+# 2. System Architecture
 ![image](https://user-images.githubusercontent.com/65939213/180504822-fd3c108e-6e71-4d56-9b00-a84801579dff.png)
 
-### ERD
-![image](https://user-images.githubusercontent.com/65939213/180504867-e9a3bf2d-0adb-4f93-8b1a-d115d69bae1d.png)
 
-
-## 3. Tech Stack
+# 3. Tech Stack
 
 <div align="center">
 
-### Frontend
+## Frontend
 <img src="https://img.shields.io/badge/react-61DAFB?style=flat-square&logo=react&logoColor=black"/>
 
-### Backend
+## Backend
 <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=FastAPI&logoColor=white"/> <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=MySQL&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon S3-569A31?style=flat-square&logo=Amazon S3&logoColor=white"/> <img src="https://img.shields.io/badge/Celery-37814A?style=flat-square&logo=Celery&logoColor=white"/> <img src="https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=RabbitMQ&logoColor=white"/> 
 
-### DevOps
+## DevOps
 <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=Docker&logoColor=white"/> <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=flat-square&logo=Amazon EC2&logoColor=white"/> 
 
 </div>
 
-## 4. 실행방법
+
+# 4. 실행방법
 **npm 모듈 설치**
 ```
 cd frontend
