@@ -4,10 +4,11 @@
 
 
   - [1. 소개](#1-소개)
-  - [2. System Architecture](#2-System-Architecture)
-  - [3. Tech Stack](#3-Tech-Stack)
-  - [4. 실행방법](#4-실행방법) 
-  - [5. 팀원](#5-팀원)
+  - [2. Demo](#2-Demo)
+  - [3. System Architecture](#3-System-Architecture)
+  - [4. Tech Stack](#4-Tech-Stack)
+  - [5. 실행방법](#5-실행방법) 
+  - [6. 팀원](#6-팀원)
   
   
 # 1. 소개
@@ -17,12 +18,14 @@
 
 GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어스타일을 내 셀카와 함께 합성한 결과를 사용자에게 제공합니다. 결과물을 비교하면서 마음에 드는 헤어스타일을 찾아보세요!
 
+# 2. Demo
+[![Video Label](http://img.youtube.com/vi/goanbqmQfKA/0.jpg)](https://youtu.be/goanbqmQfKA)
 
-# 2. System Architecture
+# 3. System Architecture
 ![image](https://user-images.githubusercontent.com/65939213/180504822-fd3c108e-6e71-4d56-9b00-a84801579dff.png)
 
 
-# 3. Tech Stack
+# 4. Tech Stack
 
 <div align="center">
 
@@ -38,7 +41,7 @@ GanZi-Salon 은 여러분에게 솔루션을 제시합니다. 원하는 헤어�
 </div>
 
 
-# 4. 실행방법
+# 5. 실행방법
 **npm 모듈 설치**
 ```
 cd frontend
@@ -51,7 +54,7 @@ docker-compose up
 ```
 
 
-## 5. 팀원
+## 6. 팀원
 | Name    | 정길연                                     | 고원준                                   | 김우현                                       | 김지혜                                 | 장아령                                 |
 | ------- | ---------------------------------------- | ---------------------------------------- | -------------------------------------------- | -------------------------------------- | -------------------------------------- |
 | Profile | <img width="200px" src="https://avatars.githubusercontent.com/u/52391627?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/86594108?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108711890?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/108566232?v=4" />                               | <img width="200px" src="https://avatars.githubusercontent.com/u/65939213?v=4" />                               |
